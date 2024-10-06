@@ -375,46 +375,6 @@
         ]
       }
     },
-    "/transaction/submit": {
-      "post": {
-        "summary": "transaction submission (request)",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "transaction submission (response)",
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Item not found"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "transaction submission (request)",
-                "type": "object",
-                "anyOf": [
-                  {
-                    "$ref": "cardano-conway.json#/definitions/Transaction"
-                  },
-                  {
-                    "$ref": "cardano-babbage.json#/definitions/Transaction"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/transactions/block_number": {
       "get": {
         "summary": "transactions by block_number (request)",
