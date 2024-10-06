@@ -9,8 +9,6 @@ Get all UTxOs that contain some of the specified asset
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -24,8 +22,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -66,8 +62,6 @@ Get all UTxOs produced by the transaction [These are only outputs, should they b
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -78,8 +72,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -120,8 +112,6 @@ Get all UTxOs present at the address
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -132,8 +122,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -174,8 +162,6 @@ Get all UTxOs present at the addresses which use the payment credential
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -189,8 +175,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -231,8 +215,6 @@ Get all UTxOs present at the addresses which use the stake credential
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -243,8 +225,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -287,8 +267,6 @@ Get the block with the supplied block number
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -301,8 +279,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -434,8 +410,6 @@ Get the block with the supplied block hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -446,8 +420,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -581,8 +553,6 @@ Get the transaction with the supplied transaction hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -593,8 +563,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -694,8 +662,6 @@ Get all transactions contained in the block with the supplied block number []
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -708,8 +674,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -810,8 +774,6 @@ Get all transactions contained in the block with the supplied block hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -822,8 +784,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -926,8 +886,6 @@ Get the datum that hashes to the supplied data hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -938,8 +896,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -965,8 +921,6 @@ Get the plutus script that hashes to the supplied script hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -977,8 +931,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1004,8 +956,6 @@ Get the native script that hashes to the supplied script hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1016,8 +966,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1058,8 +1006,6 @@ Get the metadata present on the transaction with the supplied transaction hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1070,8 +1016,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1126,8 +1070,6 @@ Get the latest protocol parameters
 
 #### Response
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1152,8 +1094,6 @@ Get the protocol parameters at the supplied epoch number
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1166,8 +1106,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>

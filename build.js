@@ -307,14 +307,12 @@ const generateMD = (endpoints) => {
       addMDLine();
       addMDLine(`${operationDetails.description}`);
       addMDLine();
-      addMDLine(`[Link to OpenApi endpoint](${pagesBaseURL}/get_${endpoint}_${operation})`)
+      addMDLine(`[Link to OpenApi endpoint](${pagesBaseURL}/get_${endpoint}_${operation})`);
       addMDLine();
       if (specialisedRequestSchema != nullSchema) {
         addMDLine(`#### Request`);
         addMDLine();
-        addMDLine(`Schema:`)
         addMDLine();
-        addMDLine()
         wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedRequestSchema, schemas))}`);
         addMDLine();
       }
@@ -322,9 +320,7 @@ const generateMD = (endpoints) => {
       if (specialisedResponseSchema != nullSchema) {
         addMDLine(`#### Response`);
         addMDLine();
-        addMDLine(`Schema:`)
         addMDLine();
-        addMDLine()
         wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedResponseSchema, schemas))}`);
         addMDLine();
       }
