@@ -1,0 +1,156 @@
+collateral_percentage:
+  info: required
+  type: int64
+constitutional_committee_max_term_length:
+  info: nullable
+  type: int64
+constitutional_committee_min_size:
+  info: nullable
+  type: int64
+delegate_representative_deposit:
+  info: nullable
+  type: object
+delegate_representative_max_idle_time:
+  info: nullable
+  type: int64
+delegate_representative_voting_thresholds_constitution:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_cc_normal:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_cc_no_confidence:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_hard_fork:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_no_confidence:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_pp_economic:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_pp_network:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_pp_governance:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_pp_technical:
+  info: nullable
+  type: string
+delegate_representative_voting_thresholds_treasury_withdrawal:
+  info: nullable
+  type: string
+desired_number_of_stake_pools:
+  info: required
+  type: int64
+governance_action_deposit:
+  info: nullable
+  type: object
+governance_action_lifetime:
+  info: nullable
+  type: int64
+max_block_body_size:
+  info: required
+  type: object
+max_block_header_size:
+  info: required
+  type: object
+max_collateral_inputs:
+  info: required
+  type: int64
+max_execution_units_per_block_cpu:
+  info: required
+  type: int64
+max_execution_units_per_block_mem:
+  info: required
+  type: int64
+max_execution_units_per_transaction_cpu:
+  info: required
+  type: int64
+max_execution_units_per_transaction_mem:
+  info: required
+  type: object
+max_reference_scripts_size:
+  info: nullable
+  type: object
+max_transaction_size:
+  info: required
+  type: object
+max_value_size:
+  info: required
+  type: object
+min_fee_coefficient:
+  info: required
+  type: int64
+min_fee_constant:
+  info: required
+  type: object
+min_fee_reference_scripts_base:
+  info: nullable
+  type: double
+min_fee_reference_scripts_multiplier:
+  info: nullable
+  type: double
+min_fee_reference_scripts_range:
+  info: nullable
+  type: int64
+min_stake_pool_cost:
+  info: required
+  type: object
+min_utxo_deposit_coefficient:
+  info: required
+  type: int64
+min_utxo_deposit_constant:
+  info: required
+  type: object
+monetary_expansion:
+  info: required
+  type: string
+plutus_cost_models:
+  info: required
+  type: object
+script_execution_prices_mem:
+  info: required
+  type: object
+script_execution_prices_cpu:
+  info: required
+  type: object
+stake_credential_deposit:
+  info: required
+  type: object
+stake_pool_deposit:
+  info: required
+  type: object
+stake_pool_pledge_influence:
+  info: required
+  type: string
+stake_pool_retirement_epoch_bound:
+  info: required
+  type: int64
+stake_pool_voting_thresholds_cc_default:
+  info: nullable
+  type: string
+stake_pool_voting_thresholds_cc_no_confidence:
+  info: nullable
+  type: string
+stake_pool_voting_thresholds_hard_fork:
+  info: nullable
+  type: string
+stake_pool_voting_thresholds_no_confidence:
+  info: nullable
+  type: string
+stake_pool_voting_thresholds_pp_security:
+  info: nullable
+  type: string
+treasury_expansion:
+  info: required
+  type: string
+protocol_major_ver:
+  info: required
+  type: string
+protocol_minor_ver:
+  info: required
+  type: string
