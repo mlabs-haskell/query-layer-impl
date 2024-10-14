@@ -3,6 +3,13 @@
   "$id": "query-layer.json",
   "title": "Cardano Query Layer Types",
   "definitions": {
+    "UInt16": {
+      "title": "UInt16",
+      "description": "16-bit unsigned integer",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$",
+      "format": "uint16"
+    },
     "UInt32": {
       "title": "UInt32",
       "description": "32-bit unsigned integer",
@@ -16,6 +23,20 @@
       "type": "string",
       "pattern": "^(0|[1-9][0-9]*)$",
       "format": "uint64"
+    },
+    "PosInt64": {
+      "title": "PosInt64",
+      "description": "64-bit unsigned integer, zero-excluded. 1-18446744073709551615",
+      "type": "string",
+      "pattern": "^([1-9][0-9]*)$",
+      "format": "posint64"
+    },
+    "Int128": {
+      "title": "Int128",
+      "description": "128-bit signed integer",
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$",
+      "format": "int128"
     },
     "PlutusV1CostModel": {
       "title": "PlutusV1CostModel",
@@ -70,6 +91,20 @@
         },
         "denominator": {
           "$ref": "query-layer.json#/definitions/UInt64"
+        }
+      },
+      "required": ["numerator", "denominator"],
+      "unevaluatedProperties": false
+    },
+    "NonnegativeInterval": {
+      "title": "NonnegativeInterval",
+      "type": "object",
+      "properties": {
+        "numerator": {
+          "$ref": "cardano-conway.json#/definitions/UInt64"
+        },
+        "denominator": {
+          "$ref": "cardano-conway.json#/definitions/PosInt64"
         }
       },
       "required": ["numerator", "denominator"],
