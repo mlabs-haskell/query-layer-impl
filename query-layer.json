@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "query-layer.json",
+  "title": "Cardano Query Layer Types",
+  "definitions": {
+    "UInt32": {
+      "title": "UInt32",
+      "description": "32-bit unsigned integer",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "UInt64": {
+      "title": "UInt64",
+      "description": "64-bit unsigned integer",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$",
+      "format": "uint64"
+    },
+    "PlutusV1CostModel": {
+      "title": "PlutusV1CostModel",
+      "type": "array",
+      "items": {
+        "$ref": "query-layer.json#/definitions/Int128"
+      },
+      "maxItems": 166,
+      "minItems": 166
+    },
+    "PlutusV2CostModel": {
+      "title": "PlutusV2CostModel",
+      "type": "array",
+      "items": {
+        "$ref": "query-layer.json#/definitions/Int128"
+      },
+      "maxItems": 175,
+      "minItems": 175
+    },
+    "PlutusV3CostModel": {
+      "title": "PlutusV3CostModel",
+      "type": "array",
+      "items": {
+        "$ref": "query-layer.json#/definitions/Int128"
+      },
+      "maxItems": 251,
+      "minItems": 251
+    },
+    "CostModels": {
+      "title": "CostModels",
+      "type": "object",
+      "properties": {
+        "plutus_v1": {
+          "$ref": "query-layer.json#/definitions/PlutusV1CostModel"
+        },
+        "plutus_v2": {
+          "$ref": "query-layer.json#/definitions/PlutusV2CostModel"
+        },
+        "plutus_v3": {
+          "$ref": "query-layer.json#/definitions/PlutusV3CostModel"
+        }
+      },
+      "required": [],
+      "unevaluatedProperties": false
+    },
+    "UnitInterval": {
+      "title": "UnitInterval",
+      "type": "object",
+      "properties": {
+        "numerator": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "denominator": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        }
+      },
+      "required": ["numerator", "denominator"],
+      "unevaluatedProperties": false
+    },
+    "ExUnitPrices": {
+      "title": "ExUnitPrices",
+      "type": "object",
+      "properties": {
+        "mem_price": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        },
+        "step_price": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        }
+      },
+      "unevaluatedProperties": false,
+      "required": [
+        "mem_price",
+        "step_price"
+      ]
+    },
+    "ExUnits": {
+      "title": "ExUnits",
+      "type": "object",
+      "properties": {
+        "mem": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "steps": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        }
+      },
+      "required": [
+        "mem",
+        "steps"
+      ],
+      "unevaluatedProperties": false
+    },
+    "ProtocolVersion": {
+      "title": "ProtocolVersion",
+      "type": "object",
+      "properties": {
+        "major": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "minor": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        }
+      },
+      "required": [
+        "major",
+        "minor"
+      ],
+      "unevaluatedProperties": false
+    },
+    "PoolVotingThresholds": {
+      "title": "PoolVotingThresholds",
+      "type": "array",
+      "items": {
+        "$ref": "query-layer.json#/definitions/UnitInterval"
+      },
+      "minItems": 5,
+      "maxItems": 5
+    },
+    "DRepVotingThresholds": {
+      "title": "DRepVotingThresholds",
+      "type": "array",
+      "items": {
+        "$ref": "query-layer.json#/definitions/UnitInterval"
+      },
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "ProtocolParamUpdate": {
+      "title": "ProtocolParamUpdate",
+      "type": "object",
+      "properties": {
+        "ada_per_utxo_byte": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "collateral_percentage": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "cost_models": {
+          "$ref": "query-layer.json#/definitions/CostModels"
+        },
+        "d": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        },
+        "execution_costs": {
+          "$ref": "query-layer.json#/definitions/ExUnitPrices"
+        },
+        "expansion_rate": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        },
+        "key_deposit": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "max_block_body_size": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "max_block_ex_units": {
+          "$ref": "query-layer.json#/definitions/ExUnits"
+        },
+        "max_block_header_size": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "max_collateral_inputs": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "max_epoch": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "max_tx_ex_units": {
+          "$ref": "query-layer.json#/definitions/ExUnits"
+        },
+        "max_tx_size": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "max_value_size": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "min_pool_cost": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "minfee_a": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "minfee_b": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "n_opt": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "pool_deposit": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "pool_pledge_influence": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        },
+        "protocol_version": {
+          "$ref": "query-layer.json#/definitions/ProtocolVersion"
+        },
+        "treasury_growth_rate": {
+          "$ref": "query-layer.json#/definitions/UnitInterval"
+        },
+        "pool_voting_thresholds": {
+          "$ref": "query-layer.json#/definitions/PoolVotingThresholds"
+        },
+        "drep_voting_thresholds": {
+          "$ref": "query-layer.json#/definitions/DRepVotingThresholds"
+        },
+        "committee_min_size": {
+          "$ref": "query-layer.json#/definitions/UInt16"
+        },
+        "committee_max_term_length": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "gov_action_lifetime": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "gov_action_deposit": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "drep_deposit": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "drep_activity": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "min_fee_ref_script_cost_per_byte": {
+          "$ref": "query-layer.json#/definitions/NonnegativeInterval"
+        }
+      },
+      "unevaluatedProperties": false,
+      "required": []
+    },
+    "ProtocolParams": {
+      "title": "ProtocolParams",
+      "type": "object",
+      "description": "Protocol parameters",
+      "allOf": [{
+        "$ref": "query-layer.json#/definitions/ProtocolParamUpdate"
+      }],
+      "required": [
+        "ada_per_utxo_byte",
+        "collateral_percentage",
+        "cost_models",
+        "d",
+        "execution_costs",
+        "expansion_rate",
+        "key_deposit",
+        "max_block_body_size",
+        "max_block_ex_units",
+        "max_block_header_size",
+        "max_collateral_inputs",
+        "max_epoch",
+        "max_tx_ex_units",
+        "max_tx_size",
+        "max_value_size",
+        "min_pool_cost",
+        "minfee_a",
+        "minfee_b",
+        "n_opt",
+        "pool_deposit",
+        "pool_pledge_influence",
+        "protocol_version",
+        "treasury_growth_rate",
+        "pool_voting_thresholds",
+        "drep_voting_thresholds",
+        "committee_min_size",
+        "committee_max_term_length",
+        "gov_action_lifetime",
+        "gov_action_deposit",
+        "drep_deposit",
+        "drep_activity",
+        "min_fee_ref_script_cost_per_byte"
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
