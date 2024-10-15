@@ -121,3 +121,68 @@ endpoints:
         ProtocolParamUpdate # TODO: make fields required
       description: >-
         Get the protocol parameters at the supplied epoch number
+  votes:
+    cc_id:
+      request: Credential
+      response:
+        votes:
+          type: array
+          items: Vote
+      description: "Votes cast by the supplied cc credential"
+    spo_id:
+      request: Ed25519KeyHash
+      response:
+        votes:
+          type: array
+          items: Vote
+      description: "Votes cast by the supplied stake pool operator"
+    drep_id:
+      request: Credential
+      response:
+        votes:
+          type: array
+          items: Vote
+      description: "Votes cast by the supplied drep"
+    proposal_id:
+      request: GovActionId
+      response:
+        votes:
+          type: array
+          items: Vote
+      description: "Votes cast on the supplied proposal"
+  drep:
+    all:
+      request: _
+      response: _
+      description: ""
+    id:
+      request: _
+      response: DRep
+      description: ""
+  committee:
+    all:
+      request: _
+      response: _
+      description: ""
+    id:
+      request: _
+      response: _
+      description: ""
+  pool:
+    all:
+      request: _
+      response: _
+      description: ""
+    id:
+      request: _
+      response: _
+      description: ""
+  proposal:
+    all:
+      request: _
+      response: _
+      description: ""
+    id:
+      request: _
+      response: ProposalProcedure
+      description: ""
