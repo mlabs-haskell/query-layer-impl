@@ -61,14 +61,7 @@
     "utxos/address:request": {
       "title": "utxos by address (request)",
       "type": "object",
-      "anyOf": [
-        {
-          "$ref": "cardano-conway.json#/definitions/Address"
-        },
-        {
-          "$ref": "cardano-babbage.json#/definitions/Address"
-        }
-      ]
+      "$ref": "cardano-babbage.json#/definitions/Address"
     },
     "utxos/address:response": {
       "title": "utxos by address (response)",
@@ -199,23 +192,6 @@
           "$ref": "cardano-babbage.json#/definitions/Transaction"
         }
       ]
-    },
-    "transaction/submit:request": {
-      "title": "transaction submission (request)",
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "cardano-conway.json#/definitions/Transaction"
-        },
-        {
-          "$ref": "cardano-babbage.json#/definitions/Transaction"
-        }
-      ]
-    },
-    "transaction/submit:response": {
-      "title": "transaction submission (response)",
-      "type": "object",
-      "properties": {}
     },
     "transactions/block_number:request": {
       "title": "transactions by block_number (request)",

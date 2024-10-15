@@ -1,13 +1,20 @@
 import yaml from 'js-yaml';
 import fs from 'fs';
 import { Case } from 'change-case-all';
+import { JSONSchemaFaker } from "json-schema-faker";
 
 import { expandSchemaRefs } from './src/schemaRefs.js';
 import { DeepSet } from './src/deepSet.js';
 import { schemaRelativeCompare } from './src/schemaRelativeCompare.js';
 
-// Input YAML
-const yamlInput = fs.readFileSync('./spec.yaml').toString();
+// jsf options
+JSONSchemaFaker.option({ minLength: 10, maxItems: 2, useDefaultValue: true, random: () => 0.2 });
+JSONSchemaFaker.format("string64", () =>
+  JSONSchemaFaker.random.randexp("[0-9a-zA-Z]{10-64}")
+);
+JSONSchemaFaker.format("string128", () =>
+  JSONSchemaFaker.random.randexp("[0-9a-zA-Z]{10-64}")
+);
 
 const REQUEST = Symbol('REQUEST');
 const RESPONSE = Symbol('RESPONSE');
@@ -24,8 +31,10 @@ const schemas = [
   ]
 ];
 
-// Parse YAML to JSON
-const parsedYaml = yaml.load(yamlInput);
+/*
+---- Helpers ----
+*/
+const prettyJSON = (json) => JSON.stringify(json, null, 2)
 
 const buildTitle = (endpoint, operation, type) => {
   return endpoint + (
@@ -39,80 +48,115 @@ const buildTitle = (endpoint, operation, type) => {
   );
 };
 
-const makeAnyOfAlternatives = (schemas, requestType) => {
+const buildAnyOfSchema = (alternatives) => alternatives.length == 1 ? alternatives[0] : ({ anyOf: alternatives });
+
+const makeAnyOfAlternatives = (type) => {
+  // We treat Address specially as conway simply removes one type of address from the spec
+  // We only apply this optimisation when the only schemas are babbage and conway in order
+  // to not introduce any mistakes in the future. This will need to be updated once
+  // support for a new schema is added.
+  if (type === 'Address' && schemas.length == 2) {
+    return [{
+      $ref: "cardano-babbage.json#/definitions/Address"
+    }]
+  }
   const alternatives = [];
 
   const altSet = new DeepSet(schemaRelativeCompare);
 
   schemas.forEach(([ref, schema]) => {
-    const digest = expandSchemaRefs(schema, requestType);
+    const digest = expandSchemaRefs(schema, type);
 
     if (altSet.has(digest)) return;
     altSet.add(digest);
-    // console.log(digest);
     alternatives.push({
-      "$ref": ref + requestType
+      "$ref": ref + type
     });
   });
 
   return alternatives;
 };
 
-const buildAnyOfSchema = (alternatives) => alternatives.length == 1 ? alternatives[0] : ({ anyOf: alternatives });
+const schemaForType = (type) => buildAnyOfSchema(makeAnyOfAlternatives(type))
 
-const buildOpenApiSchemaGetParameters = (endpoint, operation, requestBody, type) => {
+// Input is the request/response type used in spec.yaml which contains refs to the cardano-cip-0116 schemas
+// We expand and resolve all refs in the input schema, and then specialize it to remove any choice (anyOf/oneOf).
+const specialiseBody = (expanded) => {
+  if (Array.isArray(expanded.anyOf)) {
+    const pick = expanded.anyOf[0];
+    delete expanded.anyOf;
+    delete pick.title;
+    return {...expanded, ...pick};
+  }
+  if (Array.isArray(expanded.oneOf)) {
+    const pick = expanded.oneOf[0];
+    delete expanded.oneOf;
+    delete expanded.discriminator;
+    delete pick.title;
+    return {...expanded, ...pick};
+  } else return expanded;
+}
+
+// expandSchemaRefs specialised to conway schema
+const expandWithLatestSchema = (prop) => expandSchemaRefs(schemas[0][1], prop);
+
+// Schema corresponding to null
+const nullSchema = { type: null };
+
+// resolve all refs in the input with `expandWithLatestSchema`
+const expandBody = (body) => {
+  if (body === null) {
+    return nullSchema;
+  } else if (typeof body === 'string') {
+    return expandWithLatestSchema(body);
+  } else if (typeof body == 'object') {
+    for (const [propertyName, propertyType] of Object.entries(body)) {
+      if (typeof propertyType == 'string') {
+        body[propertyName] = expandBody(propertyType);
+
+      } else if (propertyType.type == 'array') {
+        propertyType.items = expandBody(propertyType.items);
+      }
+    }
+    return body
+  } else { throw new Error('Unimplemented') }
+}
+
+const buildOpenApiSchemaGetParameters = (body) => {
   let res = [];
 
-  if (requestBody === null) {
+  if (body === null) {
     // pass
-  } else if (typeof requestBody == 'string') {
+  } else if (typeof body == 'string') {
     // processing spec `request: Foo`
-    const alternatives = makeAnyOfAlternatives(schemas, requestBody);
     res = [
       {
-        name: Case.snake(requestBody),
+        name: Case.snake(body),
         'in': 'query',
         required: true,
-        schema: buildAnyOfSchema(alternatives)
+        schema: schemaForType(body)
       }
     ];
-  } else if (typeof requestBody == 'object') {
-    for (const [requestProperty, requestType] of Object.entries(requestBody)) {
+  } else if (typeof body == 'object') {
+    for (const [bodyProperty, bodyType] of Object.entries(body)) {
       // processing spec
       // ```
       // request:
       //   foo: Foo
       //   bar: Bar
       // ```
-      if (typeof requestType == 'string') {
-
-        const alternatives = makeAnyOfAlternatives(schemas, requestType);
-
+      if (typeof bodyType == 'string') {
         res.push({
-          name: Case.snake(requestProperty),
+          name: Case.snake(bodyProperty),
           'in': 'query',
           required: true,
-          schema: buildAnyOfSchema(alternatives)
+          schema: schemaForType(bodyType)
         });
-
-      } else if (requestType.type == 'array') {
-
+      } else if (bodyType.type == 'array') {
         // TODO: figure it out if ever needed
         throw new Error('array in a GET parameter is not supported yet');
-
-        // const alternatives = makeAnyOfAlternatives(schemas, requestType);
-
-        // res.push({
-        //   name: Case.snake(requestType),
-        //   'in': 'query',
-        //   required: true,
-        //   schema: {
-        //     type: 'array',
-        //     items: buildAnyOfSchema(alternatives)
-        //   }
-        // });
       } else {
-        throw new Error('unknown requestType ' + requestBody);
+        throw new Error('unknown requestType ' + body);
       }
     }
   } else {
@@ -122,41 +166,35 @@ const buildOpenApiSchemaGetParameters = (endpoint, operation, requestBody, type)
   return res;
 };
 
-const buildObjectSchema = (endpoint, operation, requestBody, type) => {
+const buildObjectSchema = (endpoint, operation, body, type) => {
   let schemaObj = {
     title: buildTitle(endpoint, operation, type),
     type: 'object',
     properties: {}
   };
 
-  if (requestBody === null) {
+  if (body === null) {
     return schemaObj;
-  } else if (typeof requestBody == 'string') {
-
-    const alternatives = makeAnyOfAlternatives(schemas, requestBody);
+  } else if (typeof body == 'string') {
 
     delete schemaObj.properties;
-    schemaObj = { ...schemaObj, ...buildAnyOfSchema(alternatives) };
+    schemaObj = { ...schemaObj, ...schemaForType(body) };
 
-  } else for (const [requestProperty, requestType] of Object.entries(requestBody)) {
-    if (typeof requestType == 'string') {
+  } else for (const [propertyName, propertyType] of Object.entries(body)) {
+    if (typeof propertyType == 'string') {
 
-      const alternatives = makeAnyOfAlternatives(schemas, requestType);
+      schemaObj.properties[propertyName] = schemaForType(propertyType);
 
-      schemaObj.properties[requestProperty] = buildAnyOfSchema(alternatives);
-
-    } else if (requestType.type == 'array') {
-      schemaObj.properties[requestProperty] = {
+    } else if (propertyType.type == 'array') {
+      schemaObj.properties[propertyName] = {
         type: 'array',
-        items: buildAnyOfSchema(makeAnyOfAlternatives(schemas, requestType.items))
+        items: schemaForType(propertyType.items)
       };
     } else {
-      throw new Error('unknown requestType ' + requestBody);
+      throw new Error('unknown requestType ' + body);
     }
   }
-
   return schemaObj;
-
 };
 
 // Function to convert parsed YAML to OpenAPI format
@@ -200,7 +238,7 @@ const convertToSchemas = (endpoints) => {
       };
 
       if (method == 'get') {
-        const parameters = buildOpenApiSchemaGetParameters(endpoint, operation, requestBody, REQUEST);
+        const parameters = buildOpenApiSchemaGetParameters(requestBody);
         paths[`/${endpoint}/${operation}`].get.parameters = parameters;
       } else if (method == 'post') {
         paths[`/${endpoint}/${operation}`].post.requestBody = {
@@ -241,11 +279,82 @@ const convertToSchemas = (endpoints) => {
   return [schema, openApiSchema];
 };
 
+const titleCase = (str) => Case.title(str.split('_').join(' '))
+
+const generateMD = (endpoints) => {
+  let res = '';
+  const addMDLine = (line = '') => {
+    res += `\n${line}`;
+  }
+
+  const wrapCode = (code) =>  {
+    addMDLine(`\`\`\`\n${code}\n\`\`\``);
+  }
+
+  const wrapCollapsibleCode = (summary, str) => {
+    addMDLine('<details>');
+    addMDLine(`<summary>${summary}: </summary>`);
+    addMDLine();
+    wrapCode(str)
+    addMDLine('</details>');
+  }
+
+  for (const endpoint of Object.keys(endpoints)) {
+    addMDLine(`## ${titleCase(endpoint)}`);
+    addMDLine();
+
+    for (const operation of Object.keys(endpoints[endpoint])) {
+      const operationDetails = endpoints[endpoint][operation];
+      const expandedRequestSchema = expandBody(operationDetails.request)
+      const specialisedRequestSchema = specialiseBody(expandedRequestSchema);
+      const expandedResponseSchema = expandBody(operationDetails.response)
+      const specialisedResponseSchema = specialiseBody(expandedResponseSchema);
+
+      addMDLine(`### ${titleCase(operation)}`);
+      addMDLine();
+      addMDLine(`${operationDetails.description}`);
+      addMDLine();
+      addMDLine(`[Link to OpenApi endpoint](${pagesBaseURL}/get_${endpoint}_${operation})`);
+      addMDLine();
+      if (specialisedRequestSchema != nullSchema) {
+        addMDLine(`#### Request`);
+        addMDLine();
+        addMDLine();
+        wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedRequestSchema, schemas))}`);
+        addMDLine();
+      }
+
+      if (specialisedResponseSchema != nullSchema) {
+        addMDLine(`#### Response`);
+        addMDLine();
+        addMDLine();
+        wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedResponseSchema, schemas))}`);
+        addMDLine();
+      }
+    }
+  }
+  return res;
+}
+
+const pagesBaseURL = 'https://nazrhom.github.io/query-layer-impl/index.html#/default';
+
+/*
+---- Main ----
+*/
+
+// Input YAML
+const yamlInput = fs.readFileSync('./spec.yaml').toString();
+
+// Parse YAML to JSON
+const parsedYaml = yaml.load(yamlInput);
+
 const [jsonSpec, openApiSpec] = convertToSchemas(parsedYaml.endpoints);
+const markdownSpec = generateMD(parsedYaml.endpoints);
 
-console.log(JSON.stringify(openApiSpec, null, 2));
+// console.log(JSON.stringify(openApiSpec, null, 2));
 
-fs.writeFileSync('./openapi.json', JSON.stringify(openApiSpec, null, 2));
-fs.writeFileSync('./json-rpc.json', JSON.stringify(jsonSpec, null, 2));
+fs.writeFileSync('./openapi.json', prettyJSON(openApiSpec));
+fs.writeFileSync('./json-rpc.json', prettyJSON(jsonSpec));
+fs.writeFileSync("./cip-spec.md", markdownSpec);
 
-console.warn(`Regenerated: openapi.json, json-rpc.json`);
+console.warn(`Regenerated: openapi.json, json-rpc.json, cip-spec.md`);
