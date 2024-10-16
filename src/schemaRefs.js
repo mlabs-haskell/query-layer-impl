@@ -62,6 +62,6 @@ export const expandSchemaRefs = (schema, requestType) => {
   if (newDefs.definitions.hasOwnProperty(requestType)) {
     return newDefs.definitions[requestType];
   } else {
-    throw new Error("Unknown type: " + requestType);
+    return null;
   }
 }

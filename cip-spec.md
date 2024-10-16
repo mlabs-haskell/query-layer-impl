@@ -1077,11 +1077,94 @@ Get the latest protocol parameters
 ```
 {
   "ada_per_utxo_byte": "0000000000",
+  "collateral_percentage": 858993459,
+  "cost_models": {
+    "Utc": -60000000,
+    "plutus_v2": [
+      "0000000000",
+      "0000000000"
+    ]
+  },
+  "d": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "execution_costs": {
+    "mem_price": {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    "step_price": {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  },
+  "expansion_rate": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "key_deposit": "0000000000",
+  "max_block_body_size": 858993459,
+  "max_block_ex_units": {
+    "mem": "0000000000",
+    "steps": "0000000000"
+  },
   "max_block_header_size": 858993459,
+  "max_collateral_inputs": 858993459,
+  "max_epoch": 858993459,
+  "max_tx_ex_units": {
+    "mem": "0000000000",
+    "steps": "0000000000"
+  },
+  "max_tx_size": 858993459,
   "max_value_size": 858993459,
+  "min_pool_cost": "0000000000",
+  "minfee_a": "0000000000",
+  "minfee_b": "0000000000",
+  "n_opt": "0000000000",
   "pool_deposit": "0000000000",
-  "drep_voting_thresholds": [],
-  "drep_deposit": "0000000000"
+  "pool_pledge_influence": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "protocol_version": {
+    "major": 858993459,
+    "minor": 858993459
+  },
+  "treasury_growth_rate": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "pool_voting_thresholds": [
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  ],
+  "drep_voting_thresholds": [
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  ],
+  "committee_min_size": "0000000000",
+  "committee_max_term_length": 858993459,
+  "gov_action_lifetime": 858993459,
+  "gov_action_deposit": "0000000000",
+  "drep_deposit": "0000000000",
+  "drep_activity": 858993459,
+  "min_fee_ref_script_cost_per_byte": {
+    "numerator": "0000000000",
+    "denominator": "222222222222"
+  }
 }
 ```
 </details>
@@ -1114,11 +1197,476 @@ Get the protocol parameters at the supplied epoch number
 ```
 {
   "ada_per_utxo_byte": "0000000000",
+  "collateral_percentage": 858993459,
+  "cost_models": {
+    "Utc": -60000000,
+    "plutus_v2": [
+      "0000000000",
+      "0000000000"
+    ]
+  },
+  "d": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "execution_costs": {
+    "mem_price": {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    "step_price": {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  },
+  "expansion_rate": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "key_deposit": "0000000000",
+  "max_block_body_size": 858993459,
+  "max_block_ex_units": {
+    "mem": "0000000000",
+    "steps": "0000000000"
+  },
   "max_block_header_size": 858993459,
+  "max_collateral_inputs": 858993459,
+  "max_epoch": 858993459,
+  "max_tx_ex_units": {
+    "mem": "0000000000",
+    "steps": "0000000000"
+  },
+  "max_tx_size": 858993459,
   "max_value_size": 858993459,
+  "min_pool_cost": "0000000000",
+  "minfee_a": "0000000000",
+  "minfee_b": "0000000000",
+  "n_opt": "0000000000",
   "pool_deposit": "0000000000",
-  "drep_voting_thresholds": [],
-  "drep_deposit": "0000000000"
+  "pool_pledge_influence": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "protocol_version": {
+    "major": 858993459,
+    "minor": 858993459
+  },
+  "treasury_growth_rate": {
+    "numerator": "0000000000",
+    "denominator": "0000000000"
+  },
+  "pool_voting_thresholds": [
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  ],
+  "drep_voting_thresholds": [
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    },
+    {
+      "numerator": "0000000000",
+      "denominator": "0000000000"
+    }
+  ],
+  "committee_min_size": "0000000000",
+  "committee_max_term_length": 858993459,
+  "gov_action_lifetime": 858993459,
+  "gov_action_deposit": "0000000000",
+  "drep_deposit": "0000000000",
+  "drep_activity": 858993459,
+  "min_fee_ref_script_cost_per_byte": {
+    "numerator": "0000000000",
+    "denominator": "222222222222"
+  }
+}
+```
+</details>
+
+## Votes
+
+### Cc Id
+
+Votes cast by the supplied cc credential
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_cc_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"cc_hot177cc_hot177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "votes": [
+    {
+      "proposal_id": "gov_action177",
+      "vote_tx_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "vote": "yes/yes/yes/yes"
+    }
+  ]
+}
+```
+</details>
+
+### Spo Id
+
+Votes cast by the supplied stake pool operator
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_spo_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"pool177pool177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "votes": [
+    {
+      "proposal_id": "gov_action177",
+      "vote_tx_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "vote": "yes/yes/yes/yes"
+    }
+  ]
+}
+```
+</details>
+
+### Drep Id
+
+Votes cast by the supplied DRep
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_drep_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"drep177drep177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "votes": [
+    {
+      "proposal_id": "gov_action177",
+      "vote_tx_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "vote": "yes/yes/yes/yes"
+    }
+  ]
+}
+```
+</details>
+
+### Proposal Id
+
+Votes cast on the supplied proposal
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_proposal_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"gov_action177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "votes": [
+    {
+      "proposal_id": "gov_action177",
+      "vote_tx_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "vote": "yes/yes/yes/yes"
+    }
+  ]
+}
+```
+</details>
+
+## Drep
+
+### All
+
+Get all the known DReps
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_drep_all)
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "dreps": [
+    {
+      "drep_id": "drep177drep177",
+      "amount": "222222222222",
+      "active": false
+    }
+  ]
+}
+```
+</details>
+
+### Id
+
+Get a specific Drep by id
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_drep_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"drep177drep177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "drep_id": "drep177drep177",
+  "amount": "222222222222",
+  "active": false
+}
+```
+</details>
+
+## Committee
+
+### All
+
+Get all known committee members
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_committee_all)
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "cc_members": [
+    {
+      "cc_cold_key": "cc_cold177",
+      "cc_hot_key": "cc_hot177cc_hot177",
+      "status": "authorised"
+    }
+  ]
+}
+```
+</details>
+
+### Id
+
+Get a specific Committee member by id
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_committee_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"cc_hot177cc_hot177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "cc_cold_key": "cc_cold177",
+  "cc_hot_key": "cc_hot177cc_hot177",
+  "status": "authorised"
+}
+```
+</details>
+
+## Pool
+
+### All
+
+Get all known stake pools
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_pool_all)
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "pools": [
+    {
+      "pool_id": "pool177pool177",
+      "status": "active/active",
+      "active_stake": "0000000000",
+      "live_stake": "0000000000"
+    }
+  ]
+}
+```
+</details>
+
+### Id
+
+Get a specific stake pool by id
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_pool_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"pool177pool177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "pool_id": "pool177pool177",
+  "status": "active/active",
+  "active_stake": "0000000000",
+  "live_stake": "0000000000"
+}
+```
+</details>
+
+## Proposal
+
+### All
+
+Get all known proposals
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_proposal_all)
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "aaa": [
+    {
+      "proposal_id": "gov_action177",
+      "enacted_epoch": 858993459
+    }
+  ]
+}
+```
+</details>
+
+### Id
+
+Get a specific proposal by id
+
+[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_proposal_id)
+
+#### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"gov_action177"
+```
+</details>
+
+#### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "proposal_id": "gov_action177",
+  "enacted_epoch": 858993459
 }
 ```
 </details>

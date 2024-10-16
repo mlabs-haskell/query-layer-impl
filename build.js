@@ -28,6 +28,10 @@ const schemas = [
   [
     "cardano-babbage.json#/definitions/",
     JSON.parse(fs.readFileSync('./CIPs/CIP-0116/cardano-babbage.json').toString())
+  ],
+  [
+    "query-layer.json#/definitions/",
+    JSON.parse(fs.readFileSync('./query-layer.json').toString())
   ]
 ];
 
@@ -52,10 +56,10 @@ const buildAnyOfSchema = (alternatives) => alternatives.length == 1 ? alternativ
 
 const makeAnyOfAlternatives = (type) => {
   // We treat Address specially as conway simply removes one type of address from the spec
-  // We only apply this optimisation when the only schemas are babbage and conway in order
-  // to not introduce any mistakes in the future. This will need to be updated once
+  // We only apply this optimisation when the only schemas are babbage and conway (plus the query-layer schema) 
+  // in order to not introduce any mistakes in the future. This will need to be updated once
   // support for a new schema is added.
-  if (type === 'Address' && schemas.length == 2) {
+  if (type === 'Address' && schemas.length == 3) {
     return [{
       $ref: "cardano-babbage.json#/definitions/Address"
     }]
@@ -67,7 +71,7 @@ const makeAnyOfAlternatives = (type) => {
   schemas.forEach(([ref, schema]) => {
     const digest = expandSchemaRefs(schema, type);
 
-    if (altSet.has(digest)) return;
+    if (digest == null || altSet.has(digest)) return;
     altSet.add(digest);
     alternatives.push({
       "$ref": ref + type
@@ -97,8 +101,15 @@ const specialiseBody = (expanded) => {
   } else return expanded;
 }
 
-// expandSchemaRefs specialised to conway schema
-const expandWithLatestSchema = (prop) => expandSchemaRefs(schemas[0][1], prop);
+// expandSchemaRefs specialised to latest schema
+const expandWithLatestSchema = (prop) => {
+  const conwayType = expandSchemaRefs(schemas[0][1], prop);
+  if (conwayType != null) return conwayType;
+  const queryLayerType = expandSchemaRefs(schemas[2][1], prop);
+  if (queryLayerType != null) return queryLayerType;
+  throw new Error(`Unable to expandWithLatestSchema for ${prop}`)
+}
+
 
 // Schema corresponding to null
 const nullSchema = { type: null };

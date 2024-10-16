@@ -38,6 +38,53 @@
       "pattern": "^-?(0|[1-9][0-9]*)$",
       "format": "int128"
     },
+    "DRepId": {
+      "title": "DRepId",
+      "type": "string",
+      "format": "bech32",
+      "pattern": "^(drep1)[02-9ac-hj-np-z]*$"
+    },
+    "CCColdId": {
+      "title": "CCColdId",
+      "type": "string",
+      "format": "bech32",
+      "pattern": "^(cc_cold1)[02-9ac-hj-np-z]*$"
+    },
+    "CCHotId": {
+      "title": "CCHotId",
+      "type": "string",
+      "format": "bech32",
+      "pattern": "^(cc_hot1)[02-9ac-hj-np-z]*$"
+    },
+    "ProposalId": {
+      "title": "ProposalId",
+      "type": "string",
+      "format": "bech32",
+      "pattern": "^(gov_action1)[02-9ac-hj-np-z]*$"
+    },
+    "PoolPubKeyHash": {
+      "title": "PoolPubKeyHash",
+      "type": "string",
+      "format": "bech32",
+      "pattern": "^(pool1)[02-9ac-hj-np-z]*$"
+    },
+    "TransactionHash": {
+      "title": "TransactionHash",
+      "type": "string",
+      "format": "hex",
+      "pattern": "^[0-9a-f]{64}$",
+      "maxLength": 64,
+      "minLength": 64
+    },
+    "Vote": {
+      "title": "Vote",
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "abstain"
+      ]
+    },
     "PlutusV1CostModel": {
       "title": "PlutusV1CostModel",
       "type": "array",
@@ -101,10 +148,10 @@
       "type": "object",
       "properties": {
         "numerator": {
-          "$ref": "cardano-conway.json#/definitions/UInt64"
+          "$ref": "query-layer.json#/definitions/UInt64"
         },
         "denominator": {
-          "$ref": "cardano-conway.json#/definitions/PosInt64"
+          "$ref": "query-layer.json#/definitions/PosInt64"
         }
       },
       "required": ["numerator", "denominator"],
@@ -325,6 +372,101 @@
         "min_fee_ref_script_cost_per_byte"
       ],
       "unevaluatedProperties": false
+    },
+    "DRepInfo": {
+      "type": "object",
+      "title": "DRepInfo",
+      "properties": {
+        "drep_id": {
+          "$ref": "query-layer.json#/definitions/DRepId"
+        },
+        "amount": {
+          "$ref": "query-layer.json#/definitions/PosInt64"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": ["drep_id", "amount", "active"],
+      "unevaluatedProperties": false
+    },
+    "CCMember": {
+      "type": "object",
+      "title": "CCMember",
+      "properties": {
+        "cc_cold_key": {
+          "$ref": "query-layer.json#/definitions/CCColdId"
+        },
+        "cc_hot_key": {
+          "$ref": "query-layer.json#/definitions/CCHotId"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["authorised", "not_authorised", "resigned"]
+        }
+      },
+      "required": ["cc_cold_key", "cc_hot_key", "status"],
+      "unevaluatedProperties": false
+    },
+    "Pool": {
+      "type": "object",
+      "title": "Pool",
+      "properties": {
+        "pool_id": {
+          "$ref": "query-layer.json#/definitions/PoolPubKeyHash"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "retiring", "retired"]
+        },
+        "active_stake": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        },
+        "live_stake": {
+          "$ref": "query-layer.json#/definitions/UInt64"
+        }
+      },
+      "required": ["pool_id", "status", "active_stake", "live_stake"],
+      "unevaluatedProperties": false
+    },
+    "Proposal": {
+      "type": "object",
+      "title": "Proposal",
+      "properties": {
+        "proposal_id": {
+          "$ref": "query-layer.json#/definitions/ProposalId"
+        },
+        "ratified_epoch": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "enacted_epoch": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "expired_epoch": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        },
+        "expiration": {
+          "$ref": "query-layer.json#/definitions/UInt32"
+        }
+      },
+      "required": ["proposal_id"],
+      "unevaluatedProperties": false
+    },
+    "VoteInfo": {
+      "type": "object",
+      "title": "VoteInfo",
+      "properties": {
+        "proposal_id": {
+          "$ref": "query-layer.json#/definitions/ProposalId"
+        },
+        "vote_tx_hash": {
+          "$ref": "query-layer.json#/definitions/TransactionHash"
+        },
+        "vote": {
+          "$ref": "query-layer.json#/definitions/Vote"
+        }
+      },
+      "required": ["proposal_id", "vote_tx_hash", "vote"]
     }
   }
 }
