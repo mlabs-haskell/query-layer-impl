@@ -56,7 +56,7 @@ Get all UTxOs that contain some of the specified asset
 
 ### Transaction Hash
 
-Get all UTxOs produced by the transaction [These are only outputs, should they be in/outs??]
+Get all UTxOs produced by the transaction
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_transaction_hash)
 
@@ -1295,7 +1295,7 @@ Get the protocol parameters at the supplied epoch number
 
 Votes cast by the supplied cc credential
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_cc_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_cc_id)
 
 #### Request
 
@@ -1331,7 +1331,7 @@ Votes cast by the supplied cc credential
 
 Votes cast by the supplied stake pool operator
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_spo_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_spo_id)
 
 #### Request
 
@@ -1367,7 +1367,7 @@ Votes cast by the supplied stake pool operator
 
 Votes cast by the supplied DRep
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_drep_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_drep_id)
 
 #### Request
 
@@ -1403,7 +1403,7 @@ Votes cast by the supplied DRep
 
 Votes cast on the supplied proposal
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_votes_proposal_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_proposal_id)
 
 #### Request
 
@@ -1441,7 +1441,7 @@ Votes cast on the supplied proposal
 
 Get all the known DReps
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_drep_all)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_all)
 
 #### Response
 
@@ -1466,7 +1466,7 @@ Get all the known DReps
 
 Get a specific Drep by id
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_drep_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_id)
 
 #### Request
 
@@ -1500,7 +1500,7 @@ Get a specific Drep by id
 
 Get all known committee members
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_committee_all)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_committee_all)
 
 #### Response
 
@@ -1525,7 +1525,7 @@ Get all known committee members
 
 Get a specific Committee member by id
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_committee_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_committee_id)
 
 #### Request
 
@@ -1559,7 +1559,7 @@ Get a specific Committee member by id
 
 Get all known stake pools
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_pool_all)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_pool_all)
 
 #### Response
 
@@ -1585,7 +1585,7 @@ Get all known stake pools
 
 Get a specific stake pool by id
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_pool_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_pool_id)
 
 #### Request
 
@@ -1620,7 +1620,7 @@ Get a specific stake pool by id
 
 Get all known proposals
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_proposal_all)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_proposal_all)
 
 #### Response
 
@@ -1644,7 +1644,7 @@ Get all known proposals
 
 Get a specific proposal by id
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_proposal_id)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_proposal_id)
 
 #### Request
 
