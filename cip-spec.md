@@ -5,7 +5,7 @@
 
 Get all UTxOs that contain some of the specified asset
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_utxos_asset)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_asset)
 
 #### Request
 
@@ -58,7 +58,7 @@ Get all UTxOs that contain some of the specified asset
 
 Get all UTxOs produced by the transaction [These are only outputs, should they be in/outs??]
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_utxos_transaction_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_transaction_hash)
 
 #### Request
 
@@ -108,7 +108,7 @@ Get all UTxOs produced by the transaction [These are only outputs, should they b
 
 Get all UTxOs present at the address
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_utxos_address)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_address)
 
 #### Request
 
@@ -158,7 +158,7 @@ Get all UTxOs present at the address
 
 Get all UTxOs present at the addresses which use the payment credential
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_utxos_payment_credential)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_payment_credential)
 
 #### Request
 
@@ -211,7 +211,7 @@ Get all UTxOs present at the addresses which use the payment credential
 
 Get all UTxOs present at the addresses which use the stake credential
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_utxos_stake_credential)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_stake_credential)
 
 #### Request
 
@@ -263,7 +263,7 @@ Get all UTxOs present at the addresses which use the stake credential
 
 Get the block with the supplied block number
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_block_number)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_block_number)
 
 #### Request
 
@@ -406,7 +406,7 @@ Get the block with the supplied block number
 
 Get the block with the supplied block hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_block_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_block_hash)
 
 #### Request
 
@@ -549,7 +549,7 @@ Get the block with the supplied block hash
 
 Get the transaction with the supplied transaction hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_transaction_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transaction_hash)
 
 #### Request
 
@@ -658,7 +658,7 @@ Get the transaction with the supplied transaction hash
 
 Get all transactions contained in the block with the supplied block number []
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_transactions_block_number)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transactions_block_number)
 
 #### Request
 
@@ -770,7 +770,7 @@ Get all transactions contained in the block with the supplied block number []
 
 Get all transactions contained in the block with the supplied block hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_transactions_block_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transactions_block_hash)
 
 #### Request
 
@@ -882,7 +882,7 @@ Get all transactions contained in the block with the supplied block hash
 
 Get the datum that hashes to the supplied data hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_datum_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_datum_hash)
 
 #### Request
 
@@ -917,7 +917,7 @@ Get the datum that hashes to the supplied data hash
 
 Get the plutus script that hashes to the supplied script hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_plutus_script_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_plutus_script_hash)
 
 #### Request
 
@@ -952,7 +952,7 @@ Get the plutus script that hashes to the supplied script hash
 
 Get the native script that hashes to the supplied script hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_native_script_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_native_script_hash)
 
 #### Request
 
@@ -1002,7 +1002,7 @@ Get the native script that hashes to the supplied script hash
 
 Get the metadata present on the transaction with the supplied transaction hash
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_metadata_transaction_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_metadata_transaction_hash)
 
 #### Request
 
@@ -1066,7 +1066,7 @@ Get the metadata present on the transaction with the supplied transaction hash
 
 Get the latest protocol parameters
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_latest)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_latest)
 
 #### Response
 
@@ -1090,7 +1090,7 @@ Get the latest protocol parameters
 
 Get the protocol parameters at the supplied epoch number
 
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_epoch)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_epoch)
 
 #### Request
 

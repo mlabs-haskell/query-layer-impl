@@ -336,7 +336,7 @@ const generateMD = (endpoints) => {
   return res;
 }
 
-const pagesBaseURL = 'https://nazrhom.github.io/query-layer-impl/index.html#/default';
+const pagesBaseURL = 'https://mlabs-haskell.github.io/query-layer-impl/index.html#/default';
 
 /*
 ---- Main ----
