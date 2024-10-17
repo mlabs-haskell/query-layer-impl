@@ -63,12 +63,6 @@ endpoints:
       response: Transaction
       description: >-
         Get the transaction with the supplied transaction hash
-    submit:
-      method: post # must be lowercase
-      request: Transaction
-      response: null
-      description: >-
-        Submit a signed transaction to the cardano node.
   transactions:
     block_number:
       request:

@@ -9,8 +9,6 @@ Get all UTxOs that contain some of the specified asset
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -24,8 +22,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -66,8 +62,6 @@ Get all UTxOs produced by the transaction [These are only outputs, should they b
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -78,8 +72,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -120,8 +112,6 @@ Get all UTxOs present at the address
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -132,8 +122,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -174,8 +162,6 @@ Get all UTxOs present at the addresses which use the payment credential
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -189,8 +175,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -231,8 +215,6 @@ Get all UTxOs present at the addresses which use the stake credential
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -243,8 +225,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -287,8 +267,6 @@ Get the block with the supplied block number
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -301,8 +279,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -434,8 +410,6 @@ Get the block with the supplied block hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -446,8 +420,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -581,8 +553,6 @@ Get the transaction with the supplied transaction hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -593,106 +563,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
-
-
-<details>
-<summary>Show Example: </summary>
-
-```
-{
-  "auxiliary_data": {},
-  "body": {
-    "auxiliary_data_hash": "3333333333333333333333333333333333333333333333333333333333333333",
-    "inputs": [
-      {
-        "transaction_id": "3333333333333333333333333333333333333333333333333333333333333333",
-        "index": 858993459
-      }
-    ],
-    "outputs": [
-      {
-        "address": "stake177stake177",
-        "amount": {
-          "coin": "0000000000"
-        },
-        "script_ref": {
-          "tag": "plutus_script",
-          "value": {
-            "language": "plutus_v1/plutus_v1",
-            "bytes": "333333333333"
-          }
-        }
-      }
-    ],
-    "fee": "0000000000",
-    "mint": [
-      {
-        "script_hash": "33333333333333333333333333333333333333333333333333333333",
-        "assets": [
-          {
-            "asset_name": "333333333333",
-            "amount": "222222222222"
-          }
-        ]
-      }
-    ],
-    "total_collateral": "0000000000",
-    "voting_procedures": [
-      {
-        "key": {
-          "tag": "cc_credential",
-          "credential": {
-            "tag": "pubkey_hash",
-            "value": "33333333333333333333333333333333333333333333333333333333"
-          }
-        },
-        "value": [
-          {
-            "key": {
-              "transaction_id": "3333333333333333333333333333333333333333333333333333333333333333",
-              "gov_action_index": "0000000000"
-            },
-            "value": {
-              "vote": "yes/yes/yes/yes"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "is_valid": false,
-  "witness_set": {
-    "Utc": -60000000,
-    "redeemers": [
-      {
-        "data": {
-          "Utc": -60000000,
-          "alternative": "0000000000"
-        },
-        "tag": "mint/mint/mint/mint",
-        "index": "0000000000",
-        "ex_units": {
-          "mem": "0000000000",
-          "steps": "0000000000"
-        }
-      }
-    ]
-  }
-}
-```
-</details>
-
-### Submit
-
-Submit a signed transaction to the cardano node.
-
-[Link to OpenApi endpoint](https://nazrhom.github.io/query-layer-impl/index.html#/default/get_transaction_submit)
-
-#### Request
-
-Schema:
 
 
 <details>
@@ -792,8 +662,6 @@ Get all transactions contained in the block with the supplied block number []
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -806,8 +674,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -908,8 +774,6 @@ Get all transactions contained in the block with the supplied block hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -920,8 +784,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1024,8 +886,6 @@ Get the datum that hashes to the supplied data hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1036,8 +896,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1063,8 +921,6 @@ Get the plutus script that hashes to the supplied script hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1075,8 +931,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1102,8 +956,6 @@ Get the native script that hashes to the supplied script hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1114,8 +966,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1156,8 +1006,6 @@ Get the metadata present on the transaction with the supplied transaction hash
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1168,8 +1016,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
@@ -1224,8 +1070,6 @@ Get the latest protocol parameters
 
 #### Response
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1250,8 +1094,6 @@ Get the protocol parameters at the supplied epoch number
 
 #### Request
 
-Schema:
-
 
 <details>
 <summary>Show Example: </summary>
@@ -1264,8 +1106,6 @@ Schema:
 </details>
 
 #### Response
-
-Schema:
 
 
 <details>
