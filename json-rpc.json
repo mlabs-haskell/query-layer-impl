@@ -486,7 +486,7 @@
       "title": "proposal by all (response)",
       "type": "object",
       "properties": {
-        "aaa": {
+        "proposals": {
           "type": "array",
           "items": {
             "$ref": "query-layer.json#/definitions/Proposal"

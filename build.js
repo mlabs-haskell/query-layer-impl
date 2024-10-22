@@ -6,9 +6,12 @@ import { JSONSchemaFaker } from "json-schema-faker";
 import { expandSchemaRefs } from './src/schemaRefs.js';
 import { DeepSet } from './src/deepSet.js';
 import { schemaRelativeCompare } from './src/schemaRelativeCompare.js';
+import * as random from 'fast-random'
+const seed = 123;
+const generator = random.default(seed);
 
 // jsf options
-JSONSchemaFaker.option({ minLength: 10, maxItems: 2, useDefaultValue: true, random: () => 0.2 });
+JSONSchemaFaker.option({ maxItems: 2, useDefaultValue: true, useExamplesValue: true, requiredOnly: true, random: generator.nextFloat });
 JSONSchemaFaker.format("string64", () =>
   JSONSchemaFaker.random.randexp("[0-9a-zA-Z]{10-64}")
 );
@@ -83,17 +86,29 @@ const makeAnyOfAlternatives = (type) => {
 
 const schemaForType = (type) => buildAnyOfSchema(makeAnyOfAlternatives(type))
 
+const objectMap = (obj, fn) =>
+  Object.fromEntries(
+    Object.entries(obj).map(
+      ([k, v], i) => [k, fn(v, k, i)]
+    )
+  )
+
 // Input is the request/response type used in spec.yaml which contains refs to the cardano-cip-0116 schemas
 // We expand and resolve all refs in the input schema, and then specialize it to remove any choice (anyOf/oneOf).
 const specialiseBody = (expanded) => {
+  if (expanded.properties instanceof Object) {
+    for (let [k, v] of Object.entries(expanded.properties)) {
+      expanded.properties[k] = specialiseBody(v)
+    }
+  }
   if (Array.isArray(expanded.anyOf)) {
-    const pick = expanded.anyOf[0];
+    const pick = specialiseBody(expanded.anyOf[0]);
     delete expanded.anyOf;
     delete pick.title;
     return {...expanded, ...pick};
   }
   if (Array.isArray(expanded.oneOf)) {
-    const pick = expanded.oneOf[0];
+    const pick = specialiseBody(expanded.oneOf[0]);
     delete expanded.oneOf;
     delete expanded.discriminator;
     delete pick.title;
@@ -294,6 +309,7 @@ const titleCase = (str) => Case.title(str.split('_').join(' '))
 
 const generateMD = (endpoints) => {
   let res = '';
+  const baseNesting = '####'
   const addMDLine = (line = '') => {
     res += `\n${line}`;
   }
@@ -311,7 +327,7 @@ const generateMD = (endpoints) => {
   }
 
   for (const endpoint of Object.keys(endpoints)) {
-    addMDLine(`## ${titleCase(endpoint)}`);
+    addMDLine(`${baseNesting} ${titleCase(endpoint)}`);
     addMDLine();
 
     for (const operation of Object.keys(endpoints[endpoint])) {
@@ -321,14 +337,14 @@ const generateMD = (endpoints) => {
       const expandedResponseSchema = expandBody(operationDetails.response)
       const specialisedResponseSchema = specialiseBody(expandedResponseSchema);
 
-      addMDLine(`### ${titleCase(operation)}`);
+      addMDLine(`${baseNesting}# ${titleCase(operation)}`);
       addMDLine();
       addMDLine(`${operationDetails.description}`);
       addMDLine();
       addMDLine(`[Link to OpenApi endpoint](${pagesBaseURL}/get_${endpoint}_${operation})`);
       addMDLine();
       if (specialisedRequestSchema != nullSchema) {
-        addMDLine(`#### Request`);
+        addMDLine(`${baseNesting}## Request`);
         addMDLine();
         addMDLine();
         wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedRequestSchema, schemas))}`);
@@ -336,7 +352,7 @@ const generateMD = (endpoints) => {
       }
 
       if (specialisedResponseSchema != nullSchema) {
-        addMDLine(`#### Response`);
+        addMDLine(`${baseNesting}## Response`);
         addMDLine();
         addMDLine();
         wrapCollapsibleCode('Show Example', `${prettyJSON(JSONSchemaFaker.generate(specialisedResponseSchema, schemas))}`);
