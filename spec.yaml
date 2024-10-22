@@ -166,7 +166,12 @@ endpoints:
       request: DRepId
       response: DRepInfo
       description: >-
-        Get a specific Drep by id
+        Get a specific DRep by id
+    stake_credential:
+      request: RewardAddress
+      response: DRepInfo
+      description: >-
+        Get the DRep that the stake credential has delegated to
   committee:
     all:
       request: null

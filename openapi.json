@@ -880,6 +880,38 @@
         ]
       }
     },
+    "/drep/stake_credential": {
+      "get": {
+        "summary": "drep by stake_credential (request)",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "drep by stake_credential (response)",
+                  "type": "object",
+                  "$ref": "query-layer.json#/definitions/DRepInfo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "reward_address",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "cardano-conway.json#/definitions/RewardAddress"
+            }
+          }
+        ]
+      }
+    },
     "/committee/all": {
       "get": {
         "summary": "committee by all (request)",

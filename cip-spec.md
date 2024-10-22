@@ -1269,7 +1269,7 @@ Get all the known DReps
 
 ##### Id
 
-Get a specific Drep by id
+Get a specific DRep by id
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_id)
 
@@ -1299,6 +1299,38 @@ Get a specific Drep by id
 ```
 </details>
 
+##### Stake Credential
+
+Get the DRep that the stake credential has delegated to
+
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_stake_credential)
+
+###### Request
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+"stake1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5egfu2p0u"
+```
+</details>
+
+###### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "drep_id": "drep1ygqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq7vlc9n",
+  "amount": "82127699945",
+  "active": true
+}
+```
+</details>
+
 #### Committee
 
 ##### All
@@ -1320,11 +1352,6 @@ Get all known committee members
       "cc_cold_key": "cc_cold1zvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6kflvs",
       "cc_hot_key": "cc_hot1qgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvcdjk7",
       "status": "resigned"
-    },
-    {
-      "cc_cold_key": "cc_cold1zvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6kflvs",
-      "cc_hot_key": "cc_hot1qgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvcdjk7",
-      "status": "authorised"
     }
   ]
 }
@@ -1358,7 +1385,7 @@ Get a specific Committee member by id
 {
   "cc_cold_key": "cc_cold1zvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6kflvs",
   "cc_hot_key": "cc_hot1qgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvcdjk7",
-  "status": "resigned"
+  "status": "authorised"
 }
 ```
 </details>
@@ -1382,15 +1409,15 @@ Get all known stake pools
   "pools": [
     {
       "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
-      "status": "retiring",
-      "active_stake": "41781628",
+      "status": "retired",
+      "active_stake": "0",
       "live_stake": "0"
     },
     {
       "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
       "status": "active",
-      "active_stake": "0",
-      "live_stake": "27745258045"
+      "active_stake": "745258045",
+      "live_stake": "671000150"
     }
   ]
 }
@@ -1423,9 +1450,9 @@ Get a specific stake pool by id
 ```
 {
   "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
-  "status": "retired",
-  "active_stake": "2",
-  "live_stake": "0"
+  "status": "active",
+  "active_stake": "0",
+  "live_stake": "44"
 }
 ```
 </details>
