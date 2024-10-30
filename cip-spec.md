@@ -1511,3 +1511,42 @@ Get a specific proposal by id
 }
 ```
 </details>
+
+#### Era
+
+##### Summary
+
+Get the start and end of each era along with parameters that can vary between hard forks
+
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_era_summary)
+
+###### Response
+
+
+<details>
+<summary>Show Example: </summary>
+
+```
+{
+  "summary": [
+    {
+      "start": {
+        "time": "730",
+        "slot": "8522888",
+        "epoch": 34394618
+      },
+      "end": {
+        "time": "45",
+        "slot": "0",
+        "epoch": 3478601479
+      },
+      "parameters": {
+        "epoch_length": 3825585609,
+        "slot_length": 2724078238,
+        "safe_zone": 3556920689
+      }
+    }
+  ]
+}
+```
+</details>

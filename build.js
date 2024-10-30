@@ -47,12 +47,15 @@ const buildTitle = (endpoint, operation, type) => {
   return endpoint + (
     operation == 'latest' ? ' (latest)' :
       operation == 'submit' ? ' submission' :
-      ' by ' + operation
-  ) + (
-    type === REQUEST ? ' (request)' :
-      type === RESPONSE ? ' (response)' :
-      ''
-  );
+        operation == 'all' ? ' (all)' :
+          operation == 'summary' ? ' summary' :
+            ' by ' + operation
+  )
+  // + (
+  //   type === REQUEST ? ' (request)' :
+  //     type === RESPONSE ? ' (response)' :
+  //     ''
+  // );
 };
 
 const buildAnyOfSchema = (alternatives) => alternatives.length == 1 ? alternatives[0] : ({ anyOf: alternatives });
@@ -85,13 +88,6 @@ const makeAnyOfAlternatives = (type) => {
 };
 
 const schemaForType = (type) => buildAnyOfSchema(makeAnyOfAlternatives(type))
-
-const objectMap = (obj, fn) =>
-  Object.fromEntries(
-    Object.entries(obj).map(
-      ([k, v], i) => [k, fn(v, k, i)]
-    )
-  )
 
 // Input is the request/response type used in spec.yaml which contains refs to the cardano-cip-0116 schemas
 // We expand and resolve all refs in the input schema, and then specialize it to remove any choice (anyOf/oneOf).

@@ -214,3 +214,12 @@ endpoints:
       response: Proposal
       description: >-
         Get a specific proposal by id
+  era:
+    summary:
+      request: null
+      response:
+        summary:
+            type: array
+            items: EraSummary
+      description: >-
+        Get the start and end of each era along with parameters that can vary between hard forks
