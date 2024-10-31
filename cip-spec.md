@@ -287,86 +287,84 @@ Get the block with the supplied block number
 
 ```
 {
-  "block": {
-    "auxiliary_data_set": {},
-    "header": {
-      "body_signature": "136c77da7cc6f02fc1af792625a5b75d8f2d83a71b27635ba228ff7c4bf13e8e9e0318e1aea7cced706c828404377d0991de77a75325c0651b5a45099dd72032c7647d8a1b76e96b8fd823198d199f3663caf27847384974b3f0a2eaaa2ad85e443bcc028ce4be9465858260e9dd1f437991aef8e43aaceab1c051ede06630ec4210f2150abc8a1ac01408061ac8867a5930f0051ade40a2d79eaa06aab715e9a9ea7af88b69a677c3314d91d15ee434bdd51e8c46aa97b1bf185cc60c48ef63324ffa914fbb1abd55d46c68cba8cd8077da8f88a6cdebc84f937bfa375505dcb95d243844b7fd08e0bc34bc083a2ad090c6b6cfd6beaec2064fc15d57540f80d93f378319dafda2668ea330d59d0ae7efd1b5f015a37eed6bcd21cd794675ebe52e31709f15e69b2ca3903acf1006c746a0b32ae7f5f469884c70a8b01d744c086474d3bbc8b86e19e1d0cff76509a143bb1bd16c6ca6a0d6020c746629485f222d649c99db064f8c9b66c199f12cc46a693437895242a01915b4f958f6ac4587706f62762e6e45f20394ad6cf93f04e0de89b5525099ed6e40d3b46ac25e1a4ddb714b34d0d27978ca16aa43d32f190029b17ef50856ba8288fb3059398204",
-      "header_body": {
-        "block_number": 795642744,
-        "slot": "0",
-        "issuer_vkey": "165767b4ab5815811983109a23250978bde372be3a36cd0bf4e6d936b2d23d08",
-        "vrf_vkey": "f517f9db8eb29964be142f29fd85d86b320175067198b0e9f867bbba511c42ee",
-        "vrf_result": {
-          "output": "9f1be1c3",
-          "proof": "f370"
-        },
-        "block_body_size": 3194471960,
-        "block_body_hash": "3ee393fd2a52c0a909af1814ee5764f02ed3b85d9d3247badea629da066ad244",
-        "operational_cert": {
-          "hot_vkey": "8272bd2deeafc2d91b2b16796b50960457c20aa5fadedcaa9e1bce26d9d965fb",
-          "kes_period": 518134050,
-          "sequence_number": 1254271129,
-          "sigma": "0e003769525373e7214d716fb4a02d1a0da0fdcbaa8fdd03295d577747e8854cc37dde5784f0d0d0172b67efb9e284e250bdb0b847dd70b72d6e161b0eae9409"
-        },
-        "protocol_version": {
-          "major": 3571437749,
-          "minor": 1179319841
-        }
-      }
-    },
-    "invalid_transactions": [
-      1049628808
-    ],
-    "transaction_bodies": [
-      {
-        "inputs": [
-          {
-            "transaction_id": "c6726192662abeab149098095eabe004ecbec47f5e564748ab0d394affca47d9",
-            "index": 3734755317
-          }
-        ],
-        "outputs": [
-          {
-            "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
-            "amount": {
-              "coin": "0"
-            }
-          },
-          {
-            "address": "37btjrVyb4KDXBNC4haBVPCrro8AQPHwvCMp3RFhhSVWwfFmZ6wwzSK6JK1hY6wHNmtrpTf1kdbva8TCneM2YsiXT7mrzT21EacHnPpz5YyUdj64na",
-            "amount": {
-              "coin": "0"
-            }
-          }
-        ],
-        "fee": "54969"
+  "auxiliary_data_set": {},
+  "header": {
+    "body_signature": "136c77da7cc6f02fc1af792625a5b75d8f2d83a71b27635ba228ff7c4bf13e8e9e0318e1aea7cced706c828404377d0991de77a75325c0651b5a45099dd72032c7647d8a1b76e96b8fd823198d199f3663caf27847384974b3f0a2eaaa2ad85e443bcc028ce4be9465858260e9dd1f437991aef8e43aaceab1c051ede06630ec4210f2150abc8a1ac01408061ac8867a5930f0051ade40a2d79eaa06aab715e9a9ea7af88b69a677c3314d91d15ee434bdd51e8c46aa97b1bf185cc60c48ef63324ffa914fbb1abd55d46c68cba8cd8077da8f88a6cdebc84f937bfa375505dcb95d243844b7fd08e0bc34bc083a2ad090c6b6cfd6beaec2064fc15d57540f80d93f378319dafda2668ea330d59d0ae7efd1b5f015a37eed6bcd21cd794675ebe52e31709f15e69b2ca3903acf1006c746a0b32ae7f5f469884c70a8b01d744c086474d3bbc8b86e19e1d0cff76509a143bb1bd16c6ca6a0d6020c746629485f222d649c99db064f8c9b66c199f12cc46a693437895242a01915b4f958f6ac4587706f62762e6e45f20394ad6cf93f04e0de89b5525099ed6e40d3b46ac25e1a4ddb714b34d0d27978ca16aa43d32f190029b17ef50856ba8288fb3059398204",
+    "header_body": {
+      "block_number": 795642744,
+      "slot": "0",
+      "issuer_vkey": "165767b4ab5815811983109a23250978bde372be3a36cd0bf4e6d936b2d23d08",
+      "vrf_vkey": "f517f9db8eb29964be142f29fd85d86b320175067198b0e9f867bbba511c42ee",
+      "vrf_result": {
+        "output": "9f1be1c3",
+        "proof": "f370"
       },
-      {
-        "inputs": [
-          {
-            "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
-            "index": 3792213977
-          }
-        ],
-        "outputs": [
-          {
-            "address": "stake1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5egfu2p0u",
-            "amount": {
-              "coin": "0"
-            }
-          },
-          {
-            "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
-            "amount": {
-              "coin": "208074"
-            }
-          }
-        ],
-        "fee": "0"
+      "block_body_size": 3194471960,
+      "block_body_hash": "3ee393fd2a52c0a909af1814ee5764f02ed3b85d9d3247badea629da066ad244",
+      "operational_cert": {
+        "hot_vkey": "8272bd2deeafc2d91b2b16796b50960457c20aa5fadedcaa9e1bce26d9d965fb",
+        "kes_period": 518134050,
+        "sequence_number": 1254271129,
+        "sigma": "0e003769525373e7214d716fb4a02d1a0da0fdcbaa8fdd03295d577747e8854cc37dde5784f0d0d0172b67efb9e284e250bdb0b847dd70b72d6e161b0eae9409"
+      },
+      "protocol_version": {
+        "major": 3571437749,
+        "minor": 1179319841
       }
-    ],
-    "transaction_witness_sets": []
-  }
+    }
+  },
+  "invalid_transactions": [
+    1049628808
+  ],
+  "transaction_bodies": [
+    {
+      "inputs": [
+        {
+          "transaction_id": "c6726192662abeab149098095eabe004ecbec47f5e564748ab0d394affca47d9",
+          "index": 3734755317
+        }
+      ],
+      "outputs": [
+        {
+          "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
+          "amount": {
+            "coin": "0"
+          }
+        },
+        {
+          "address": "37btjrVyb4KDXBNC4haBVPCrro8AQPHwvCMp3RFhhSVWwfFmZ6wwzSK6JK1hY6wHNmtrpTf1kdbva8TCneM2YsiXT7mrzT21EacHnPpz5YyUdj64na",
+          "amount": {
+            "coin": "0"
+          }
+        }
+      ],
+      "fee": "54969"
+    },
+    {
+      "inputs": [
+        {
+          "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
+          "index": 3792213977
+        }
+      ],
+      "outputs": [
+        {
+          "address": "stake1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5egfu2p0u",
+          "amount": {
+            "coin": "0"
+          }
+        },
+        {
+          "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
+          "amount": {
+            "coin": "208074"
+          }
+        }
+      ],
+      "fee": "0"
+    }
+  ],
+  "transaction_witness_sets": []
 }
 ```
 </details>
@@ -396,84 +394,82 @@ Get the block with the supplied block hash
 
 ```
 {
-  "block": {
-    "auxiliary_data_set": {},
-    "header": {
-      "body_signature": "618b6723c85ac208a076aaed1403cb2e1defe348df9c0a29b2320096dcb99c8e7b1caaeacb48b6c649f7c3b5ff472368a3cc358144977e04630659c92a1f013a83b2290f7ed85e414220eea362cd8c6b257cf91db67e4c6925f1a3dfda5b436a06c5ea8fc7f31d1d350c15b058cd8ece85ca5ce04d093b0072908905f4549fdaaeebb5b70fbb933ef4c58c8dcc1fbfe410b8e0dc590a146f040a392962f99c5c0022f7b3185ac21cd663abe019c7e356340348853e65c96064f014c2a02243431abf30516068a4ac8fde6d13c5e7f24d39f2bf2ad384590cd655f2487448db4b000039aa046b90d61e0bb05c1a92a8982d87774b92d21dde8d4df2349e853561fef6e8d82e5894836bc6912d13df16823ffc36aa2bab392e7dabc37931f879c750cb1fae261821c26f3350dd687efce8411aeedbdd9e94777c27ffe9579778cf444f82597995c7a96cd7913166d1e1786eb976958328969af10c814e0a0eb5fbddef29482057dfa9366599acdc4977f3938e62cfed90cadf5ca0813f84c2580a6a2be36944e415d81582dc15c4858c319fcadeb1705abf753f781242cebdb83ae69e313cfd66a241bd5f0d447c77672ca878a1fbbc2f66e1e1c0edf9c7283582",
-      "header_body": {
-        "block_number": 3044719066,
-        "slot": "63441",
-        "issuer_vkey": "47d9426dba32ee6800bd6042ecb31162c26a5f9d4548d6b898be3696663cb1e9",
-        "vrf_vkey": "2659846f2ec75dab36fb08b59e4b15a61cc7fbad655f4d8cd6dc5871335321e3",
-        "vrf_result": {
-          "output": "8f7b6d7a61b9",
-          "proof": "605199ad5a52f09e63"
-        },
-        "block_body_size": 3287206835,
-        "block_body_hash": "fea424dee30c903d27100067c73b54517467886bedfcf6b2752025a74c86b28d",
-        "operational_cert": {
-          "hot_vkey": "4ba98524fc74be4c9801a279602cbdd25c1b8c864da36e46110653d46cfc773b",
-          "kes_period": 2895629300,
-          "sequence_number": 3801291659,
-          "sigma": "c0d9a3eccedbc707724c5e2e6052e8f6cb7c35c7f9bb283535d10f45f37ba188737583bec3bf3e8c97c5f016ea89bd2e907a948ec0a2394bf2411fb2494d613f"
-        },
-        "protocol_version": {
-          "major": 2583355968,
-          "minor": 1095517331
-        }
-      }
-    },
-    "invalid_transactions": [
-      3906487169
-    ],
-    "transaction_bodies": [
-      {
-        "inputs": [
-          {
-            "transaction_id": "eca40340fa6e65d964915ba4bc8bd811a0493d263ffe95875291114cbb2d0686",
-            "index": 1586486251
-          },
-          {
-            "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
-            "index": 3307196019
-          }
-        ],
-        "outputs": [
-          {
-            "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
-            "amount": {
-              "coin": "6"
-            }
-          }
-        ],
-        "fee": "356709740"
+  "auxiliary_data_set": {},
+  "header": {
+    "body_signature": "618b6723c85ac208a076aaed1403cb2e1defe348df9c0a29b2320096dcb99c8e7b1caaeacb48b6c649f7c3b5ff472368a3cc358144977e04630659c92a1f013a83b2290f7ed85e414220eea362cd8c6b257cf91db67e4c6925f1a3dfda5b436a06c5ea8fc7f31d1d350c15b058cd8ece85ca5ce04d093b0072908905f4549fdaaeebb5b70fbb933ef4c58c8dcc1fbfe410b8e0dc590a146f040a392962f99c5c0022f7b3185ac21cd663abe019c7e356340348853e65c96064f014c2a02243431abf30516068a4ac8fde6d13c5e7f24d39f2bf2ad384590cd655f2487448db4b000039aa046b90d61e0bb05c1a92a8982d87774b92d21dde8d4df2349e853561fef6e8d82e5894836bc6912d13df16823ffc36aa2bab392e7dabc37931f879c750cb1fae261821c26f3350dd687efce8411aeedbdd9e94777c27ffe9579778cf444f82597995c7a96cd7913166d1e1786eb976958328969af10c814e0a0eb5fbddef29482057dfa9366599acdc4977f3938e62cfed90cadf5ca0813f84c2580a6a2be36944e415d81582dc15c4858c319fcadeb1705abf753f781242cebdb83ae69e313cfd66a241bd5f0d447c77672ca878a1fbbc2f66e1e1c0edf9c7283582",
+    "header_body": {
+      "block_number": 3044719066,
+      "slot": "63441",
+      "issuer_vkey": "47d9426dba32ee6800bd6042ecb31162c26a5f9d4548d6b898be3696663cb1e9",
+      "vrf_vkey": "2659846f2ec75dab36fb08b59e4b15a61cc7fbad655f4d8cd6dc5871335321e3",
+      "vrf_result": {
+        "output": "8f7b6d7a61b9",
+        "proof": "605199ad5a52f09e63"
       },
-      {
-        "inputs": [
-          {
-            "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
-            "index": 1277654959
-          }
-        ],
-        "outputs": [
-          {
-            "address": "stake1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5egfu2p0u",
-            "amount": {
-              "coin": "0"
-            }
-          },
-          {
-            "address": "37btjrVyb4KDXBNC4haBVPCrro8AQPHwvCMp3RFhhSVWwfFmZ6wwzSK6JK1hY6wHNmtrpTf1kdbva8TCneM2YsiXT7mrzT21EacHnPpz5YyUdj64na",
-            "amount": {
-              "coin": "0"
-            }
-          }
-        ],
-        "fee": "207293551"
+      "block_body_size": 3287206835,
+      "block_body_hash": "fea424dee30c903d27100067c73b54517467886bedfcf6b2752025a74c86b28d",
+      "operational_cert": {
+        "hot_vkey": "4ba98524fc74be4c9801a279602cbdd25c1b8c864da36e46110653d46cfc773b",
+        "kes_period": 2895629300,
+        "sequence_number": 3801291659,
+        "sigma": "c0d9a3eccedbc707724c5e2e6052e8f6cb7c35c7f9bb283535d10f45f37ba188737583bec3bf3e8c97c5f016ea89bd2e907a948ec0a2394bf2411fb2494d613f"
+      },
+      "protocol_version": {
+        "major": 2583355968,
+        "minor": 1095517331
       }
-    ],
-    "transaction_witness_sets": []
-  }
+    }
+  },
+  "invalid_transactions": [
+    3906487169
+  ],
+  "transaction_bodies": [
+    {
+      "inputs": [
+        {
+          "transaction_id": "eca40340fa6e65d964915ba4bc8bd811a0493d263ffe95875291114cbb2d0686",
+          "index": 1586486251
+        },
+        {
+          "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
+          "index": 3307196019
+        }
+      ],
+      "outputs": [
+        {
+          "address": "addr1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5eg0yu80w",
+          "amount": {
+            "coin": "6"
+          }
+        }
+      ],
+      "fee": "356709740"
+    },
+    {
+      "inputs": [
+        {
+          "transaction_id": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
+          "index": 1277654959
+        }
+      ],
+      "outputs": [
+        {
+          "address": "stake1vpu5vlrf4xkxv2qpwngf6cjhtw542ayty80v8dyr49rf5egfu2p0u",
+          "amount": {
+            "coin": "0"
+          }
+        },
+        {
+          "address": "37btjrVyb4KDXBNC4haBVPCrro8AQPHwvCMp3RFhhSVWwfFmZ6wwzSK6JK1hY6wHNmtrpTf1kdbva8TCneM2YsiXT7mrzT21EacHnPpz5YyUdj64na",
+          "amount": {
+            "coin": "0"
+          }
+        }
+      ],
+      "fee": "207293551"
+    }
+  ],
+  "transaction_witness_sets": []
 }
 ```
 </details>
@@ -714,10 +710,41 @@ Get the datum that hashes to the supplied data hash
 
 ```
 {
-  "datum": {
-    "tag": "bytes",
-    "value": "b800b0aba8"
-  }
+  "tag": "list",
+  "contents": [
+    {
+      "tag": "map",
+      "contents": []
+    },
+    {
+      "tag": "list",
+      "contents": [
+        {
+          "tag": "list",
+          "contents": [
+            {
+              "tag": "map",
+              "contents": []
+            },
+            {
+              "tag": "list",
+              "contents": [
+                {
+                  "tag": "constr",
+                  "alternative": "0",
+                  "data": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "map",
+          "contents": []
+        }
+      ]
+    }
+  ]
 }
 ```
 </details>
@@ -737,7 +764,7 @@ Get the plutus script that hashes to the supplied script hash
 <summary>Show Example: </summary>
 
 ```
-"40573c6246b667ab2cf4ea16b2d5b8a71fd6c220e11fdb5f3484f043"
+"7ab2cf4ea16b2d5b8a71fd6c220e11fdb5f3484f043ca7d65fb385b3"
 ```
 </details>
 
@@ -749,10 +776,8 @@ Get the plutus script that hashes to the supplied script hash
 
 ```
 {
-  "plutus_script": {
-    "language": "plutus_v3",
-    "bytes": "7d65fb385b3d0101"
-  }
+  "language": "plutus_v3",
+  "bytes": "10"
 }
 ```
 </details>
@@ -772,7 +797,7 @@ Get the native script that hashes to the supplied script hash
 <summary>Show Example: </summary>
 
 ```
-"02a5b9b9c750f691ed46f591b8170c3fd26f9d184ec8dd35bdba3c75"
+"f02a5b9b9c750f691ed46f591b8170c3fd26f9d184ec8dd35bdba3c7"
 ```
 </details>
 
@@ -784,10 +809,8 @@ Get the native script that hashes to the supplied script hash
 
 ```
 {
-  "native_script": {
-    "tag": "timelock_expiry",
-    "slot": "39"
-  }
+  "tag": "pubkey",
+  "pubkey": "ca42e84ecfc9efd10bc10d42e22b22d2289c161cbdde6376415b5871"
 }
 ```
 </details>
@@ -807,7 +830,7 @@ Get the metadata present on the transaction with the supplied transaction hash
 <summary>Show Example: </summary>
 
 ```
-"fbc1da46d62a431e69855ad48a6b49b0e2aaafc6fd3dc4a066c6851b7bd31a91"
+"7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006"
 ```
 </details>
 
@@ -823,31 +846,35 @@ Get the metadata present on the transaction with the supplied transaction hash
   "contents": [
     {
       "key": {
-        "tag": "string",
-        "value": "N{10-64}"
-      },
-      "value": {
-        "tag": "int",
-        "value": "-1"
-      }
-    },
-    {
-      "key": {
-        "tag": "bytes",
-        "value": "0d42e22b22d2289c"
-      },
-      "value": {
-        "tag": "map",
+        "tag": "list",
         "contents": [
           {
-            "key": {
-              "tag": "bytes",
-              "value": "de6376415b58717f55b9d009f55cfcd99c74214162c42cd321af83472287ded28aae95a6eb10e0bede337da89f8c6b55ef1716e5a685"
-            },
-            "value": {
-              "tag": "string",
-              "value": "q{10-64}"
-            }
+            "tag": "string",
+            "value": "1{10-64}"
+          },
+          {
+            "tag": "int",
+            "value": "985574311"
+          }
+        ]
+      },
+      "value": {
+        "tag": "list",
+        "contents": [
+          {
+            "tag": "map",
+            "contents": [
+              {
+                "key": {
+                  "tag": "bytes",
+                  "value": "21af83472287ded28aae95a6eb10"
+                },
+                "value": {
+                  "tag": "string",
+                  "value": "I{10-64}"
+                }
+              }
+            ]
           }
         ]
       }
@@ -873,88 +900,88 @@ Get the latest protocol parameters
 
 ```
 {
-  "ada_per_utxo_byte": "0",
-  "collateral_percentage": 1977868629,
+  "ada_per_utxo_byte": "8214865595",
+  "collateral_percentage": 3252825201,
   "cost_models": {},
   "d": {
     "numerator": "0",
-    "denominator": "805976"
+    "denominator": "3991"
   },
   "execution_costs": {
     "mem_price": {
-      "numerator": "3760847615",
+      "numerator": "0",
       "denominator": "0"
     },
     "step_price": {
       "numerator": "0",
-      "denominator": "0"
+      "denominator": "33538740"
     }
   },
   "expansion_rate": {
-    "numerator": "742373",
-    "denominator": "6022896"
+    "numerator": "0",
+    "denominator": "0"
   },
-  "key_deposit": "9048062",
-  "max_block_body_size": 1554557657,
+  "key_deposit": "805976",
+  "max_block_body_size": 4067656587,
   "max_block_ex_units": {
-    "mem": "5357594652",
-    "steps": "378123732"
+    "mem": "0",
+    "steps": "70847615"
   },
-  "max_block_header_size": 2541100256,
-  "max_collateral_inputs": 1479508029,
-  "max_epoch": 615951496,
+  "max_block_header_size": 1371478347,
+  "max_collateral_inputs": 5466590,
+  "max_epoch": 1884857497,
   "max_tx_ex_units": {
-    "mem": "2",
-    "steps": "3142149"
+    "mem": "742373",
+    "steps": "6022896"
   },
-  "max_tx_size": 635858960,
-  "max_value_size": 1711671777,
-  "min_pool_cost": "0",
-  "minfee_a": "67527890493",
-  "minfee_b": "0",
-  "n_opt": "0",
-  "pool_deposit": "71472732409",
+  "max_tx_size": 2695796622,
+  "max_value_size": 4174634245,
+  "min_pool_cost": "18062",
+  "minfee_a": "0",
+  "minfee_b": "5357594652",
+  "n_opt": "378123732",
+  "pool_deposit": "46",
   "pool_pledge_influence": {
-    "numerator": "7133030",
+    "numerator": "0",
     "denominator": "0"
   },
   "protocol_version": {
-    "major": 74433822,
-    "minor": 2402460520
+    "major": 3754287127,
+    "minor": 1343856109
   },
   "treasury_growth_rate": {
-    "numerator": "0",
-    "denominator": "45"
+    "numerator": "221491",
+    "denominator": "0"
   },
   "pool_voting_thresholds": [
     {
-      "numerator": "0",
-      "denominator": "562830"
+      "numerator": "67527890493",
+      "denominator": "0"
     },
     {
-      "numerator": "108",
-      "denominator": "0"
+      "numerator": "0",
+      "denominator": "71472732409"
     }
   ],
   "drep_voting_thresholds": [
     {
-      "numerator": "0",
+      "numerator": "63",
       "denominator": "0"
     },
     {
       "numerator": "0",
-      "denominator": "33570"
+      "denominator": "0"
     }
   ],
-  "committee_min_size": "56901",
-  "committee_max_term_length": 2564267198,
-  "gov_action_lifetime": 3079468872,
-  "gov_action_deposit": "0",
-  "drep_deposit": "0",
-  "drep_activity": 2514896276,
+  "committee_min_size": "0",
+  "committee_max_term_length": 1479674763,
+  "gov_action_lifetime": 74433822,
+  "gov_action_deposit": "24159164462",
+  "drep_deposit": "4",
+  "drep_activity": 3383589293,
   "min_fee_ref_script_cost_per_byte": {
-    "numerator": "8113262729",
-    "denominator": "81689650"
+    "numerator": "0",
+    "denominator": "2"
   }
 }
 ```
@@ -974,7 +1001,7 @@ Get the protocol parameters at the supplied epoch number
 
 ```
 {
-  "epoch_number": 3533825275
+  "epoch_number": 3733274909
 }
 ```
 </details>
@@ -987,88 +1014,88 @@ Get the protocol parameters at the supplied epoch number
 
 ```
 {
-  "ada_per_utxo_byte": "9789470",
-  "collateral_percentage": 1606006169,
+  "ada_per_utxo_byte": "0",
+  "collateral_percentage": 1617421275,
   "cost_models": {},
   "d": {
-    "numerator": "918",
-    "denominator": "5933250"
+    "numerator": "0",
+    "denominator": "0"
   },
   "execution_costs": {
     "mem_price": {
       "numerator": "0",
-      "denominator": "0"
+      "denominator": "33570"
     },
     "step_price": {
-      "numerator": "848900193",
-      "denominator": "0"
+      "numerator": "56901",
+      "denominator": "7"
     }
   },
   "expansion_rate": {
-    "numerator": "880",
-    "denominator": "0"
+    "numerator": "0",
+    "denominator": "8811326272"
   },
-  "key_deposit": "67",
-  "max_block_body_size": 2763174108,
+  "key_deposit": "81689650",
+  "max_block_body_size": 3533825275,
   "max_block_ex_units": {
-    "mem": "0",
-    "steps": "4607565"
+    "mem": "9789470",
+    "steps": "0"
   },
-  "max_block_header_size": 1271393601,
-  "max_collateral_inputs": 652898174,
-  "max_epoch": 3872817619,
+  "max_block_header_size": 3659142665,
+  "max_collateral_inputs": 4240535489,
+  "max_epoch": 1042276500,
   "max_tx_ex_units": {
     "mem": "0",
-    "steps": "30"
+    "steps": "959332"
   },
-  "max_tx_size": 607826262,
-  "max_value_size": 1460004229,
-  "min_pool_cost": "706681812",
-  "minfee_a": "25",
-  "minfee_b": "6733225",
-  "n_opt": "41875",
-  "pool_deposit": "0",
+  "max_tx_size": 2519810430,
+  "max_value_size": 295500448,
+  "min_pool_cost": "0",
+  "minfee_a": "0",
+  "minfee_b": "848900193",
+  "n_opt": "0",
+  "pool_deposit": "880",
   "pool_pledge_influence": {
     "numerator": "0",
-    "denominator": "78388171"
+    "denominator": "67"
   },
   "protocol_version": {
-    "major": 426143910,
-    "minor": 1794405185
+    "major": 2763174108,
+    "minor": 968052096
   },
   "treasury_growth_rate": {
-    "numerator": "0",
-    "denominator": "871793417"
+    "numerator": "4607565",
+    "denominator": "0"
   },
   "pool_voting_thresholds": [
     {
-      "numerator": "0",
-      "denominator": "2"
+      "numerator": "5210139",
+      "denominator": "7"
     },
     {
-      "numerator": "8129",
-      "denominator": "353734147"
+      "numerator": "618128115",
+      "denominator": "6733225"
     }
   ],
   "drep_voting_thresholds": [
     {
-      "numerator": "45850967477",
+      "numerator": "0",
       "denominator": "0"
     },
     {
       "numerator": "0",
-      "denominator": "0"
+      "denominator": "7348778"
     }
   ],
   "committee_min_size": "0",
-  "committee_max_term_length": 223674158,
-  "gov_action_lifetime": 3722567539,
-  "gov_action_deposit": "42149850",
-  "drep_deposit": "0",
-  "drep_activity": 3795950329,
+  "committee_max_term_length": 3523439575,
+  "gov_action_lifetime": 3541801449,
+  "gov_action_deposit": "0",
+  "drep_deposit": "24",
+  "drep_activity": 1127315307,
   "min_fee_ref_script_cost_per_byte": {
-    "numerator": "68173841",
-    "denominator": "82"
+    "numerator": "871793417",
+    "denominator": "351068"
   }
 }
 ```
@@ -1106,11 +1133,6 @@ Votes cast by the supplied cc credential
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
       "vote_tx_hash": "c6726192662abeab149098095eabe004ecbec47f5e564748ab0d394affca47d9",
       "vote": "abstain"
-    },
-    {
-      "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
-      "vote_tx_hash": "eca40340fa6e65d964915ba4bc8bd811a0493d263ffe95875291114cbb2d0686",
-      "vote": "yes"
     }
   ]
 }
@@ -1145,12 +1167,12 @@ Votes cast by the supplied stake pool operator
   "votes": [
     {
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
-      "vote_tx_hash": "c6726192662abeab149098095eabe004ecbec47f5e564748ab0d394affca47d9",
-      "vote": "no"
+      "vote_tx_hash": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
+      "vote": "abstain"
     },
     {
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
-      "vote_tx_hash": "fbc1da46d62a431e69855ad48a6b49b0e2aaafc6fd3dc4a066c6851b7bd31a91",
+      "vote_tx_hash": "7420a723bf4ee4417ec1aa2262ff60921270681e7a9d537132cbcc82917e8006",
       "vote": "yes"
     }
   ]
@@ -1187,7 +1209,7 @@ Votes cast by the supplied DRep
     {
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
       "vote_tx_hash": "c6726192662abeab149098095eabe004ecbec47f5e564748ab0d394affca47d9",
-      "vote": "yes"
+      "vote": "no"
     },
     {
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
@@ -1227,13 +1249,8 @@ Votes cast on the supplied proposal
   "votes": [
     {
       "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
-      "vote_tx_hash": "eca40340fa6e65d964915ba4bc8bd811a0493d263ffe95875291114cbb2d0686",
-      "vote": "no"
-    },
-    {
-      "proposal_id": "gov_action1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpzklpgpf",
       "vote_tx_hash": "fbc1da46d62a431e69855ad48a6b49b0e2aaafc6fd3dc4a066c6851b7bd31a91",
-      "vote": "yes"
+      "vote": "abstain"
     }
   ]
 }
@@ -1259,8 +1276,8 @@ Get all the known DReps
   "dreps": [
     {
       "drep_id": "drep1ygqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq7vlc9n",
-      "amount": "30090",
-      "active": false
+      "amount": "73330",
+      "active": true
     }
   ]
 }
@@ -1293,7 +1310,7 @@ Get a specific DRep by id
 ```
 {
   "drep_id": "drep1ygqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq7vlc9n",
-  "amount": "5",
+  "amount": "7149",
   "active": true
 }
 ```
@@ -1325,8 +1342,8 @@ Get the DRep that the stake credential has delegated to
 ```
 {
   "drep_id": "drep1ygqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq7vlc9n",
-  "amount": "82127699945",
-  "active": true
+  "amount": "3566817384",
+  "active": false
 }
 ```
 </details>
@@ -1348,6 +1365,11 @@ Get all known committee members
 ```
 {
   "cc_members": [
+    {
+      "cc_cold_key": "cc_cold1zvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6kflvs",
+      "cc_hot_key": "cc_hot1qgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvcdjk7",
+      "status": "not_authorised"
+    },
     {
       "cc_cold_key": "cc_cold1zvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6kflvs",
       "cc_hot_key": "cc_hot1qgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvcdjk7",
@@ -1409,15 +1431,9 @@ Get all known stake pools
   "pools": [
     {
       "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
-      "status": "retired",
-      "active_stake": "0",
-      "live_stake": "0"
-    },
-    {
-      "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
       "status": "active",
-      "active_stake": "745258045",
-      "live_stake": "671000150"
+      "active_stake": "65155183259",
+      "live_stake": "81525215"
     }
   ]
 }
@@ -1452,7 +1468,7 @@ Get a specific stake pool by id
   "pool_id": "pool12a39rkzfylvn9wfe8j6y8ucq6g2l4mw4azj70y0gd8ejczznyj2",
   "status": "active",
   "active_stake": "0",
-  "live_stake": "44"
+  "live_stake": "1"
 }
 ```
 </details>
@@ -1531,19 +1547,36 @@ Get the start and end of each era along with parameters that can vary between ha
   "summary": [
     {
       "start": {
-        "time": "730",
-        "slot": "8522888",
-        "epoch": 34394618
+        "time": "3921276999",
+        "slot": "0",
+        "epoch": 2336213278
       },
       "end": {
-        "time": "45",
+        "time": "41781628",
         "slot": "0",
-        "epoch": 3478601479
+        "epoch": 2978580216
       },
       "parameters": {
-        "epoch_length": 3825585609,
-        "slot_length": 2724078238,
-        "safe_zone": 3556920689
+        "epoch_length": 720472590,
+        "slot_length": 1582308913,
+        "safe_zone": 2230198492
+      }
+    },
+    {
+      "start": {
+        "time": "0",
+        "slot": "745258045",
+        "epoch": 4094381277
+      },
+      "end": {
+        "time": "810001507",
+        "slot": "1831",
+        "epoch": 2068430763
+      },
+      "parameters": {
+        "epoch_length": 116725424,
+        "slot_length": 3750916013,
+        "safe_zone": 1825569387
       }
     }
   ]

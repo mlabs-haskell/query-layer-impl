@@ -142,18 +142,14 @@
     "block/number:response": {
       "title": "block by number",
       "type": "object",
-      "properties": {
-        "block": {
-          "anyOf": [
-            {
-              "$ref": "cardano-conway.json#/definitions/Block"
-            },
-            {
-              "$ref": "cardano-babbage.json#/definitions/Block"
-            }
-          ]
+      "anyOf": [
+        {
+          "$ref": "cardano-conway.json#/definitions/Block"
+        },
+        {
+          "$ref": "cardano-babbage.json#/definitions/Block"
         }
-      }
+      ]
     },
     "block/hash:request": {
       "title": "block by hash",
@@ -163,18 +159,14 @@
     "block/hash:response": {
       "title": "block by hash",
       "type": "object",
-      "properties": {
-        "block": {
-          "anyOf": [
-            {
-              "$ref": "cardano-conway.json#/definitions/Block"
-            },
-            {
-              "$ref": "cardano-babbage.json#/definitions/Block"
-            }
-          ]
+      "anyOf": [
+        {
+          "$ref": "cardano-conway.json#/definitions/Block"
+        },
+        {
+          "$ref": "cardano-babbage.json#/definitions/Block"
         }
-      }
+      ]
     },
     "transaction/hash:request": {
       "title": "transaction by hash",
@@ -253,11 +245,7 @@
     "datum/hash:response": {
       "title": "datum by hash",
       "type": "object",
-      "properties": {
-        "datum": {
-          "$ref": "cardano-conway.json#/definitions/PlutusData"
-        }
-      }
+      "$ref": "cardano-conway.json#/definitions/PlutusData"
     },
     "plutus_script/hash:request": {
       "title": "plutus_script by hash",
@@ -267,18 +255,14 @@
     "plutus_script/hash:response": {
       "title": "plutus_script by hash",
       "type": "object",
-      "properties": {
-        "plutus_script": {
-          "anyOf": [
-            {
-              "$ref": "cardano-conway.json#/definitions/PlutusScript"
-            },
-            {
-              "$ref": "cardano-babbage.json#/definitions/PlutusScript"
-            }
-          ]
+      "anyOf": [
+        {
+          "$ref": "cardano-conway.json#/definitions/PlutusScript"
+        },
+        {
+          "$ref": "cardano-babbage.json#/definitions/PlutusScript"
         }
-      }
+      ]
     },
     "native_script/hash:request": {
       "title": "native_script by hash",
@@ -288,11 +272,7 @@
     "native_script/hash:response": {
       "title": "native_script by hash",
       "type": "object",
-      "properties": {
-        "native_script": {
-          "$ref": "cardano-conway.json#/definitions/NativeScript"
-        }
-      }
+      "$ref": "cardano-conway.json#/definitions/NativeScript"
     },
     "metadata/transaction_hash:request": {
       "title": "metadata by transaction_hash",

@@ -254,18 +254,14 @@
                 "schema": {
                   "title": "block by number",
                   "type": "object",
-                  "properties": {
-                    "block": {
-                      "anyOf": [
-                        {
-                          "$ref": "cardano-conway.json#/definitions/Block"
-                        },
-                        {
-                          "$ref": "cardano-babbage.json#/definitions/Block"
-                        }
-                      ]
+                  "anyOf": [
+                    {
+                      "$ref": "cardano-conway.json#/definitions/Block"
+                    },
+                    {
+                      "$ref": "cardano-babbage.json#/definitions/Block"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -297,18 +293,14 @@
                 "schema": {
                   "title": "block by hash",
                   "type": "object",
-                  "properties": {
-                    "block": {
-                      "anyOf": [
-                        {
-                          "$ref": "cardano-conway.json#/definitions/Block"
-                        },
-                        {
-                          "$ref": "cardano-babbage.json#/definitions/Block"
-                        }
-                      ]
+                  "anyOf": [
+                    {
+                      "$ref": "cardano-conway.json#/definitions/Block"
+                    },
+                    {
+                      "$ref": "cardano-babbage.json#/definitions/Block"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -471,11 +463,7 @@
                 "schema": {
                   "title": "datum by hash",
                   "type": "object",
-                  "properties": {
-                    "datum": {
-                      "$ref": "cardano-conway.json#/definitions/PlutusData"
-                    }
-                  }
+                  "$ref": "cardano-conway.json#/definitions/PlutusData"
                 }
               }
             }
@@ -507,18 +495,14 @@
                 "schema": {
                   "title": "plutus_script by hash",
                   "type": "object",
-                  "properties": {
-                    "plutus_script": {
-                      "anyOf": [
-                        {
-                          "$ref": "cardano-conway.json#/definitions/PlutusScript"
-                        },
-                        {
-                          "$ref": "cardano-babbage.json#/definitions/PlutusScript"
-                        }
-                      ]
+                  "anyOf": [
+                    {
+                      "$ref": "cardano-conway.json#/definitions/PlutusScript"
+                    },
+                    {
+                      "$ref": "cardano-babbage.json#/definitions/PlutusScript"
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -550,11 +534,7 @@
                 "schema": {
                   "title": "native_script by hash",
                   "type": "object",
-                  "properties": {
-                    "native_script": {
-                      "$ref": "cardano-conway.json#/definitions/NativeScript"
-                    }
-                  }
+                  "$ref": "cardano-conway.json#/definitions/NativeScript"
                 }
               }
             }

@@ -361,9 +361,69 @@ const generateMD = (endpoints) => {
 
 const pagesBaseURL = 'https://mlabs-haskell.github.io/query-layer-impl/index.html#/default';
 
+const preamble = `
+Upon successful connection via \`cardano.{walletName}.enable()\`, a javascript object we will refer to as \`API\` (type) / \`api\` (instance) is returned to the dApp with the following methods.
+All methods should not require any user interaction as the user has already consented to the dApp reading information about the wallet's state when they agreed to \`cardano.{walletName}.enable()\`.
+`
+
+const customLowerSnake = (s) => {
+  let r = s
+  if (s.startsWith('DRep')) r = `Drep${s.slice(4)}`
+  if (s.endsWith('PubKeyHash')) r = `${s.slice(0, -10)}Pubkeyhash`
+  return Case.lower(Case.snake(r))
+}
+
+// convert schema to ts type
+const toTSType = (body, role) => {
+  if (body === null) {
+    return ``;
+  } else if (typeof body === 'string') {
+    return role == REQUEST ? `${customLowerSnake(body)}: ${body}` : body;
+  } else if (typeof body == 'object') {
+    return Object.entries(body).map(([propertyName, propertyType]) => {
+      if (typeof propertyType == 'string') {
+        return `${propertyName}: ${propertyType}`
+      } else if (propertyType.type == 'array') {
+        return `${propertyType.items}[]`
+      } else { throw new Error('Unimplemented ' + propertyType) }
+    }).join(', ')
+  } else { throw new Error('Unimplemented') }
+}
+
+const toTSAPIEndpoint = (endpoint, operation, args, result) => {
+  return `api.${endpoint}.${operation}(${toTSType(args, REQUEST)}) : Promise<${toTSType(result, RESPONSE)}>`
+}
+
+const generateTSAPI = (endpoints) => {
+  let res = '';
+  const baseNesting = '###'
+  const addMDLine = (line = '') => {
+    res += `\n${line}`;
+  }
+
+  addMDLine(`${baseNesting} Full API`);
+  addMDLine();
+  addMDLine(preamble);
+
+  for (const endpoint of Object.keys(endpoints)) {
+    addMDLine(`${baseNesting}# ${titleCase(endpoint)}`);
+    addMDLine();
+
+    for (const operation of Object.keys(endpoints[endpoint])) {
+      const operationDetails = endpoints[endpoint][operation];
+      addMDLine(`${baseNesting}## \`${toTSAPIEndpoint(endpoint, operation, operationDetails.request, operationDetails.response)}\``);
+      addMDLine();
+      addMDLine(`${operationDetails.description}`);
+      addMDLine();
+    }
+  }
+  return res;
+}
+
 /*
 ---- Main ----
 */
+const deepClone = (a) => JSON.parse(JSON.stringify(a))
 
 // Input YAML
 const yamlInput = fs.readFileSync('./spec.yaml').toString();
@@ -372,12 +432,14 @@ const yamlInput = fs.readFileSync('./spec.yaml').toString();
 const parsedYaml = yaml.load(yamlInput);
 
 const [jsonSpec, openApiSpec] = convertToSchemas(parsedYaml.endpoints);
-const markdownSpec = generateMD(parsedYaml.endpoints);
+const markdownSpec = generateMD(deepClone(parsedYaml.endpoints));
+const tsAPI = generateTSAPI(parsedYaml.endpoints);
 
 // console.log(JSON.stringify(openApiSpec, null, 2));
 
 fs.writeFileSync('./openapi.json', prettyJSON(openApiSpec));
 fs.writeFileSync('./json-rpc.json', prettyJSON(jsonSpec));
 fs.writeFileSync("./cip-spec.md", markdownSpec);
+fs.writeFileSync("./ts-api.md", tsAPI);
 
 console.warn(`Regenerated: openapi.json, json-rpc.json, cip-spec.md`);
