@@ -272,7 +272,7 @@
         },
         "parameters": [
           {
-            "name": "block_number",
+            "name": "u_int64",
             "in": "query",
             "required": true,
             "schema": {
@@ -396,7 +396,7 @@
         },
         "parameters": [
           {
-            "name": "block_number",
+            "name": "u_int64",
             "in": "query",
             "required": true,
             "schema": {
@@ -632,7 +632,7 @@
         },
         "parameters": [
           {
-            "name": "epoch_number",
+            "name": "u_int32",
             "in": "query",
             "required": true,
             "schema": {

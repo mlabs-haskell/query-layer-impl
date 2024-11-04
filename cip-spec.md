@@ -273,9 +273,7 @@ Get the block with the supplied block number
 <summary>Show Example: </summary>
 
 ```
-{
-  "block_number": "0"
-}
+"0"
 ```
 </details>
 
@@ -543,9 +541,7 @@ Get all transactions contained in the block with the supplied block number []
 <summary>Show Example: </summary>
 
 ```
-{
-  "block_number": "0"
-}
+"0"
 ```
 </details>
 
@@ -1000,9 +996,7 @@ Get the protocol parameters at the supplied epoch number
 <summary>Show Example: </summary>
 
 ```
-{
-  "epoch_number": 3733274909
-}
+3733274909
 ```
 </details>
 

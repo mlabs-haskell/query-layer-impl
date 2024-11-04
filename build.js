@@ -391,7 +391,7 @@ const toTSType = (body, role) => {
 }
 
 const toTSAPIEndpoint = (endpoint, operation, args, result) => {
-  return `api.${endpoint}.${operation}(${toTSType(args, REQUEST)}) : Promise<${toTSType(result, RESPONSE)}>`
+  return `api.query.${endpoint}.${operation}(${toTSType(args, REQUEST)}) : Promise<${toTSType(result, RESPONSE)}>`
 }
 
 const generateTSAPI = (endpoints) => {
@@ -442,4 +442,4 @@ fs.writeFileSync('./json-rpc.json', prettyJSON(jsonSpec));
 fs.writeFileSync("./cip-spec.md", markdownSpec);
 fs.writeFileSync("./ts-api.md", tsAPI);
 
-console.warn(`Regenerated: openapi.json, json-rpc.json, cip-spec.md`);
+console.warn(`Regenerated: openapi.json, json-rpc.json, cip-spec.md, ts-api.md`);

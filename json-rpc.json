@@ -133,11 +133,7 @@
     "block/number:request": {
       "title": "block by number",
       "type": "object",
-      "properties": {
-        "block_number": {
-          "$ref": "cardano-conway.json#/definitions/UInt64"
-        }
-      }
+      "$ref": "cardano-conway.json#/definitions/UInt64"
     },
     "block/number:response": {
       "title": "block by number",
@@ -188,11 +184,7 @@
     "transactions/block_number:request": {
       "title": "transactions by block_number",
       "type": "object",
-      "properties": {
-        "block_number": {
-          "$ref": "cardano-conway.json#/definitions/UInt64"
-        }
-      }
+      "$ref": "cardano-conway.json#/definitions/UInt64"
     },
     "transactions/block_number:response": {
       "title": "transactions by block_number",
@@ -297,11 +289,7 @@
     "protocol_parameters/epoch:request": {
       "title": "protocol_parameters by epoch",
       "type": "object",
-      "properties": {
-        "epoch_number": {
-          "$ref": "cardano-conway.json#/definitions/UInt32"
-        }
-      }
+      "$ref": "cardano-conway.json#/definitions/UInt32"
     },
     "protocol_parameters/epoch:response": {
       "title": "protocol_parameters by epoch",
