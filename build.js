@@ -406,7 +406,7 @@ const toTSAPIEndpoint = (endpoint, operation, args, result) => {
 
 const generateTSAPI = (endpoints) => {
   let res = '';
-  const baseNesting = '###'
+  const baseNesting = '##'
   const addMDLine = (line = '') => {
     res += `\n${line}`;
   }
