@@ -1,13 +1,30 @@
 
-#### Utxos
+## Contents
 
-##### Asset
+1. [Utxos](#utxos)
+1. [Block](#block)
+1. [Transaction](#transaction)
+1. [Datum](#datum)
+1. [Plutus Script](#plutus-script)
+1. [Native Script](#native-script)
+1. [Metadata](#metadata)
+1. [Protocol Parameters](#protocol-parameters)
+1. [Votes](#votes)
+1. [Drep](#drep)
+1. [Committee](#committee)
+1. [Pool](#pool)
+1. [Proposal](#proposal)
+1. [Era](#era)
+
+## Utxos
+
+### Asset
 
 Get all UTxOs that contain some of the specified asset
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_asset)
 
-###### Request
+#### Request
 
 
 <details>
@@ -15,13 +32,13 @@ Get all UTxOs that contain some of the specified asset
 
 ```
 {
-  "asset_name": "",
+  "asset_name": "504154415445",
   "minting_policy_hash": "fa055f570e99cfd65e86a5e4488220f5a2cfd8f2be90d98f54d3eafa"
 }
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -59,13 +76,13 @@ Get all UTxOs that contain some of the specified asset
 ```
 </details>
 
-##### Transaction Hash
+### Transaction Hash
 
 Get all UTxOs produced by the transaction
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_transaction_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -76,7 +93,7 @@ Get all UTxOs produced by the transaction
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -102,13 +119,13 @@ Get all UTxOs produced by the transaction
 ```
 </details>
 
-##### Address
+### Address
 
 Get all UTxOs present at the address
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_address)
 
-###### Request
+#### Request
 
 
 <details>
@@ -119,7 +136,7 @@ Get all UTxOs present at the address
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -157,13 +174,13 @@ Get all UTxOs present at the address
 ```
 </details>
 
-##### Payment Credential
+### Payment Credential
 
 Get all UTxOs present at the addresses which use the payment credential
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_payment_credential)
 
-###### Request
+#### Request
 
 
 <details>
@@ -177,7 +194,7 @@ Get all UTxOs present at the addresses which use the payment credential
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -215,13 +232,13 @@ Get all UTxOs present at the addresses which use the payment credential
 ```
 </details>
 
-##### Stake Credential
+### Stake Credential
 
 Get all UTxOs present at the addresses which use the stake credential
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_utxos_stake_credential)
 
-###### Request
+#### Request
 
 
 <details>
@@ -232,7 +249,7 @@ Get all UTxOs present at the addresses which use the stake credential
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -258,15 +275,15 @@ Get all UTxOs present at the addresses which use the stake credential
 ```
 </details>
 
-#### Block
+## Block
 
-##### Number
+### Number
 
 Get the block with the supplied block number
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_block_number)
 
-###### Request
+#### Request
 
 
 <details>
@@ -277,7 +294,7 @@ Get the block with the supplied block number
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -367,13 +384,13 @@ Get the block with the supplied block number
 ```
 </details>
 
-##### Hash
+### Hash
 
 Get the block with the supplied block hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_block_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -384,7 +401,7 @@ Get the block with the supplied block hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -472,15 +489,15 @@ Get the block with the supplied block hash
 ```
 </details>
 
-#### Transaction
+## Transaction
 
-##### Hash
+### Hash
 
 Get the transaction with the supplied transaction hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transaction_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -491,7 +508,7 @@ Get the transaction with the supplied transaction hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -526,15 +543,13 @@ Get the transaction with the supplied transaction hash
 ```
 </details>
 
-#### Transactions
-
-##### Block Number
+### Block Number
 
 Get all transactions contained in the block with the supplied block number []
 
-[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transactions_block_number)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transaction_block_number)
 
-###### Request
+#### Request
 
 
 <details>
@@ -545,7 +560,7 @@ Get all transactions contained in the block with the supplied block number []
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -621,13 +636,13 @@ Get all transactions contained in the block with the supplied block number []
 ```
 </details>
 
-##### Block Hash
+### Block Hash
 
 Get all transactions contained in the block with the supplied block hash
 
-[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transactions_block_hash)
+[Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_transaction_block_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -638,7 +653,7 @@ Get all transactions contained in the block with the supplied block hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -679,15 +694,15 @@ Get all transactions contained in the block with the supplied block hash
 ```
 </details>
 
-#### Datum
+## Datum
 
-##### Hash
+### Hash
 
 Get the datum that hashes to the supplied data hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_datum_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -698,7 +713,7 @@ Get the datum that hashes to the supplied data hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -745,15 +760,15 @@ Get the datum that hashes to the supplied data hash
 ```
 </details>
 
-#### Plutus Script
+## Plutus Script
 
-##### Hash
+### Hash
 
 Get the plutus script that hashes to the supplied script hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_plutus_script_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -764,7 +779,7 @@ Get the plutus script that hashes to the supplied script hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -778,15 +793,15 @@ Get the plutus script that hashes to the supplied script hash
 ```
 </details>
 
-#### Native Script
+## Native Script
 
-##### Hash
+### Hash
 
 Get the native script that hashes to the supplied script hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_native_script_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -797,7 +812,7 @@ Get the native script that hashes to the supplied script hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -811,15 +826,15 @@ Get the native script that hashes to the supplied script hash
 ```
 </details>
 
-#### Metadata
+## Metadata
 
-##### Transaction Hash
+### Transaction Hash
 
 Get the metadata present on the transaction with the supplied transaction hash
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_metadata_transaction_hash)
 
-###### Request
+#### Request
 
 
 <details>
@@ -830,7 +845,7 @@ Get the metadata present on the transaction with the supplied transaction hash
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -880,15 +895,15 @@ Get the metadata present on the transaction with the supplied transaction hash
 ```
 </details>
 
-#### Protocol Parameters
+## Protocol Parameters
 
-##### Latest
+### Latest
 
 Get the latest protocol parameters
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_latest)
 
-###### Response
+#### Response
 
 
 <details>
@@ -983,13 +998,13 @@ Get the latest protocol parameters
 ```
 </details>
 
-##### Epoch
+### Epoch
 
 Get the protocol parameters at the supplied epoch number
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_protocol_parameters_epoch)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1000,7 +1015,7 @@ Get the protocol parameters at the supplied epoch number
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1095,15 +1110,15 @@ Get the protocol parameters at the supplied epoch number
 ```
 </details>
 
-#### Votes
+## Votes
 
-##### Cc Id
+### Cc Id
 
 Votes cast by the supplied cc credential
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_cc_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1114,7 +1129,7 @@ Votes cast by the supplied cc credential
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1133,13 +1148,13 @@ Votes cast by the supplied cc credential
 ```
 </details>
 
-##### Spo Id
+### Spo Id
 
 Votes cast by the supplied stake pool operator
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_spo_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1150,7 +1165,7 @@ Votes cast by the supplied stake pool operator
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1174,13 +1189,13 @@ Votes cast by the supplied stake pool operator
 ```
 </details>
 
-##### Drep Id
+### Drep Id
 
 Votes cast by the supplied DRep
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_drep_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1191,7 +1206,7 @@ Votes cast by the supplied DRep
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1215,13 +1230,13 @@ Votes cast by the supplied DRep
 ```
 </details>
 
-##### Proposal Id
+### Proposal Id
 
 Votes cast on the supplied proposal
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_votes_proposal_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1232,7 +1247,7 @@ Votes cast on the supplied proposal
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1251,15 +1266,15 @@ Votes cast on the supplied proposal
 ```
 </details>
 
-#### Drep
+## Drep
 
-##### All
+### All
 
 Get all the known DReps
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_all)
 
-###### Response
+#### Response
 
 
 <details>
@@ -1278,13 +1293,13 @@ Get all the known DReps
 ```
 </details>
 
-##### Id
+### Id
 
 Get a specific DRep by id
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1295,7 +1310,7 @@ Get a specific DRep by id
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1310,13 +1325,13 @@ Get a specific DRep by id
 ```
 </details>
 
-##### Stake Credential
+### Stake Credential
 
 Get the DRep that the stake credential has delegated to
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_drep_stake_credential)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1327,7 +1342,7 @@ Get the DRep that the stake credential has delegated to
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1342,15 +1357,15 @@ Get the DRep that the stake credential has delegated to
 ```
 </details>
 
-#### Committee
+## Committee
 
-##### All
+### All
 
 Get all known committee members
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_committee_all)
 
-###### Response
+#### Response
 
 
 <details>
@@ -1374,13 +1389,13 @@ Get all known committee members
 ```
 </details>
 
-##### Id
+### Id
 
 Get a specific Committee member by id
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_committee_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1391,7 +1406,7 @@ Get a specific Committee member by id
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1406,15 +1421,15 @@ Get a specific Committee member by id
 ```
 </details>
 
-#### Pool
+## Pool
 
-##### All
+### All
 
 Get all known stake pools
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_pool_all)
 
-###### Response
+#### Response
 
 
 <details>
@@ -1434,13 +1449,13 @@ Get all known stake pools
 ```
 </details>
 
-##### Id
+### Id
 
 Get a specific stake pool by id
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_pool_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1451,7 +1466,7 @@ Get a specific stake pool by id
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1467,15 +1482,15 @@ Get a specific stake pool by id
 ```
 </details>
 
-#### Proposal
+## Proposal
 
-##### All
+### All
 
 Get all known proposals
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_proposal_all)
 
-###### Response
+#### Response
 
 
 <details>
@@ -1492,13 +1507,13 @@ Get all known proposals
 ```
 </details>
 
-##### Id
+### Id
 
 Get a specific proposal by id
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_proposal_id)
 
-###### Request
+#### Request
 
 
 <details>
@@ -1509,7 +1524,7 @@ Get a specific proposal by id
 ```
 </details>
 
-###### Response
+#### Response
 
 
 <details>
@@ -1522,15 +1537,15 @@ Get a specific proposal by id
 ```
 </details>
 
-#### Era
+## Era
 
-##### Summary
+### Summary
 
 Get the start and end of each era along with parameters that can vary between hard forks
 
 [Link to OpenApi endpoint](https://mlabs-haskell.github.io/query-layer-impl/index.html#/default/get_era_summary)
 
-###### Response
+#### Response
 
 
 <details>

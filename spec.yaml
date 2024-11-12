@@ -59,7 +59,6 @@ endpoints:
       response: Transaction
       description: >-
         Get the transaction with the supplied transaction hash
-  transactions:
     block_number:
       request: UInt64
       response:

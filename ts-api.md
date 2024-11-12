@@ -3,7 +3,7 @@
 
 
 Upon successful connection via `cardano.{walletName}.enable()`, a javascript object we will refer to as `API` (type) / `api` (instance) is returned to the dApp with the following methods.
-All methods should not require any user interaction as the user has already consented to the dApp reading information about the wallet's state when they agreed to `cardano.{walletName}.enable()`.
+All methods should not require any user interaction as the user has already consented to the dApp querying information from the blockchain when they agreed to `cardano.{walletName}.enable()`.
 
 #### Utxos
 
@@ -43,13 +43,11 @@ Get the block with the supplied block hash
 
 Get the transaction with the supplied transaction hash
 
-#### Transactions
-
-##### `api.query.transactions.block_number(u_int64: UInt64) : Promise<Transaction[]>`
+##### `api.query.transaction.block_number(u_int64: UInt64) : Promise<Transaction[]>`
 
 Get all transactions contained in the block with the supplied block number []
 
-##### `api.query.transactions.block_hash(block_hash: BlockHash) : Promise<Transaction[]>`
+##### `api.query.transaction.block_hash(block_hash: BlockHash) : Promise<Transaction[]>`
 
 Get all transactions contained in the block with the supplied block hash
 

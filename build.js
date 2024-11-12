@@ -305,7 +305,7 @@ const titleCase = (str) => Case.title(str.split('_').join(' '))
 
 const generateMD = (endpoints) => {
   let res = '';
-  const baseNesting = '####'
+  const baseNesting = '##'
   const addMDLine = (line = '') => {
     res += `\n${line}`;
   }
@@ -322,6 +322,16 @@ const generateMD = (endpoints) => {
     addMDLine('</details>');
   }
 
+  // ToC
+  addMDLine(`${baseNesting} Contents`);
+  addMDLine();
+  for (const endpoint of Object.keys(endpoints)) {
+    const ref = titleCase(endpoint);
+    addMDLine(`1. [${ref}](#${Case.kebab(Case.lower(ref))})`);
+  }
+  addMDLine();
+
+  // Contents
   for (const endpoint of Object.keys(endpoints)) {
     addMDLine(`${baseNesting} ${titleCase(endpoint)}`);
     addMDLine();
@@ -363,7 +373,7 @@ const pagesBaseURL = 'https://mlabs-haskell.github.io/query-layer-impl/index.htm
 
 const preamble = `
 Upon successful connection via \`cardano.{walletName}.enable()\`, a javascript object we will refer to as \`API\` (type) / \`api\` (instance) is returned to the dApp with the following methods.
-All methods should not require any user interaction as the user has already consented to the dApp reading information about the wallet's state when they agreed to \`cardano.{walletName}.enable()\`.
+All methods should not require any user interaction as the user has already consented to the dApp querying information from the blockchain when they agreed to \`cardano.{walletName}.enable()\`.
 `
 
 const customLowerSnake = (s) => {
