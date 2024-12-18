@@ -44,16 +44,13 @@ endpoints:
         Get all UTxOs present at the addresses which use the stake credential
   block:
     number:
-      request:
-        block_number: UInt64
-      response:
-        block: Block
+      request: UInt64
+      response: Block
       description: >-
         Get the block with the supplied block number
     hash:
       request: BlockHash
-      response:
-        block: Block
+      response: Block
       description: >-
         Get the block with the supplied block hash
   transaction:
@@ -62,10 +59,8 @@ endpoints:
       response: Transaction
       description: >-
         Get the transaction with the supplied transaction hash
-  transactions:
     block_number:
-      request:
-        block_number: UInt64
+      request: UInt64
       response:
         transactions:
           type: array
@@ -83,22 +78,19 @@ endpoints:
   datum:
     hash:
       request: DataHash
-      response:
-        datum: PlutusData
+      response: PlutusData
       description: >-
         Get the datum that hashes to the supplied data hash
   plutus_script:
     hash:
       request: ScriptHash
-      response:
-        plutus_script: PlutusScript
+      response: PlutusScript
       description: >-
         Get the plutus script that hashes to the supplied script hash
   native_script:
     hash:
       request: ScriptHash
-      response:
-        native_script: NativeScript
+      response: NativeScript
       description: >-
         Get the native script that hashes to the supplied script hash
   metadata:
@@ -114,8 +106,7 @@ endpoints:
       description: >-
         Get the latest protocol parameters
     epoch:
-      request:
-        epoch_number: UInt32
+      request: UInt32
       response:
         ProtocolParams
       description: >-
@@ -214,3 +205,12 @@ endpoints:
       response: Proposal
       description: >-
         Get a specific proposal by id
+  era:
+    summary:
+      request: null
+      response:
+        summary:
+            type: array
+            items: EraSummary
+      description: >-
+        Get the start and end of each era along with parameters that can vary between hard forks
