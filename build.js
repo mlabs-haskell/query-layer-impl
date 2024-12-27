@@ -22,6 +22,7 @@ JSONSchemaFaker.format("string128", () =>
 const REQUEST = Symbol('REQUEST');
 const RESPONSE = Symbol('RESPONSE');
 
+const queryLayerSchema = JSON.parse(fs.readFileSync('./query-layer.json').toString())
 // Add new in the future
 const schemas = [
   [
@@ -34,7 +35,7 @@ const schemas = [
   ],
   [
     "query-layer.json#/definitions/",
-    JSON.parse(fs.readFileSync('./query-layer.json').toString())
+    queryLayerSchema
   ]
 ];
 
@@ -430,6 +431,80 @@ const generateTSAPI = (endpoints) => {
   return res;
 }
 
+const toAbstractReq = (body) => {
+  let schemaObj = {
+    type: 'object',
+    properties: {},
+    required: []
+  };
+
+  if (body === null) {
+    return {};
+  } else if (typeof body === 'string') {
+    //TODO: check what cip type is defined in
+    let cip = ""
+    if (queryLayerSchema.definitions[body]) {
+      cip = "cip-139"
+    } else {
+      cip = "cip-116"
+    }
+    return { $ref: `#/${cip}/${body}` };
+  } else if (typeof body == 'object') {
+    for (const [propertyName, propertyType] of Object.entries(body)) {
+      schemaObj.required.push(propertyName)
+      if (typeof propertyType == 'string') {
+        schemaObj.properties[propertyName] = toAbstractReq(propertyType);
+      } else if (propertyType.type == 'array') {
+        schemaObj.properties[propertyName] = {
+          type: "array",
+          items: toAbstractReq(propertyType.items)
+        };
+      }
+    }
+    return schemaObj;
+  } else { throw new Error('Unimplemented') }
+}
+
+const asAbstractSpec = (operationName, operationDetails) => {
+  return prettyJSON({
+    operation: operationName,
+    request: toAbstractReq(operationDetails.request),
+    response: toAbstractReq(operationDetails.response),
+    errors: [ { "$ref": "#/appendix/APIError" } ]
+  })
+}
+
+const titleCaseNoSpace = (a) => titleCase(a).split(' ').join('') 
+
+const generateAbstractSpec = (endpoints) => {
+  let res = '';
+  const baseNesting = '###'
+  const addMDLine = (line = '') => {
+    res += `\n${line}`;
+  }
+
+  const wrapCode = (code) =>  {
+    addMDLine(`\`\`\`\n${code}\n\`\`\``);
+  }
+
+  for (const endpoint of Object.keys(endpoints)) {
+    addMDLine(`${baseNesting}# ${titleCase(endpoint)}`);
+    addMDLine();
+
+    for (const operation of Object.keys(endpoints[endpoint])) {
+      const operationDetails = endpoints[endpoint][operation];
+      addMDLine(`${baseNesting}## ${titleCase(operation)}`);
+      addMDLine();
+      wrapCode(asAbstractSpec(Case.camel(`${endpoint}${titleCase(operation)}`), operationDetails));
+      addMDLine();
+      addMDLine(`${operationDetails.description}`);
+      addMDLine();
+    }
+  }
+
+  return res;
+}
+
 /*
 ---- Main ----
 */
@@ -444,6 +519,7 @@ const parsedYaml = yaml.load(yamlInput);
 const [jsonSpec, openApiSpec] = convertToSchemas(parsedYaml.endpoints);
 const markdownSpec = generateMD(deepClone(parsedYaml.endpoints));
 const tsAPI = generateTSAPI(parsedYaml.endpoints);
+const abstractSpec = generateAbstractSpec(parsedYaml.endpoints);
 
 // console.log(JSON.stringify(openApiSpec, null, 2));
 
@@ -451,5 +527,6 @@ fs.writeFileSync('./openapi.json', prettyJSON(openApiSpec));
 fs.writeFileSync('./json-rpc.json', prettyJSON(jsonSpec));
 fs.writeFileSync("./cip-spec.md", markdownSpec);
 fs.writeFileSync("./ts-api.md", tsAPI);
+fs.writeFileSync("./abstract-spec.md", abstractSpec);
 
 console.warn(`Regenerated: openapi.json, json-rpc.json, cip-spec.md, ts-api.md`);
